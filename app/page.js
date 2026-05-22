@@ -144,7 +144,7 @@ export default function Home() {
           <h2 className="font-display text-3xl font-bold mb-3">Ready to Get the Care You Need?</h2>
           <p className="text-teal-100 mb-8 max-w-md mx-auto">Windsor's most complete medical facility is here for you — book online or walk in today.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="#" onClick={() => window.scrollTo({top:0,behavior:'smooth'})} className="btn-primary bg-white text-teal-800 hover:bg-teal-50">Book an Appointment</Link>
+            <Link href="/contact#booking" className="btn-primary bg-white text-teal-800 hover:bg-teal-50">Book an Appointment</Link>
             <Link href="/services" className="btn-outline border-white text-white hover:bg-white/20 hover:text-white">Explore Services</Link>
           </div>
         </section>
