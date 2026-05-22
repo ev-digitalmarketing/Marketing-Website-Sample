@@ -40,14 +40,14 @@ export default function ContactPage() {
                   <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📞</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm">Phone</h3>
-                    <a href="tel:+12223334444" className="text-teal-600 text-sm hover:underline">+1-222-333-4444</a>
+                    <a href="tel:+15199151394" className="text-teal-600 text-sm hover:underline">+1-519-915-1394</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
                   <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">✉️</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm">Email</h3>
-                    <a href="mailto:info@ottawamedical.ca" className="text-teal-600 text-sm hover:underline">info@ottawamedical.ca</a>
+                    <a href="mailto:info@ottawastreetmedicalcentre.ca" className="text-teal-600 text-sm hover:underline">info@ottawastreetmedicalcentre.ca</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">

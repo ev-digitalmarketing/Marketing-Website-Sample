@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Link from 'next/link'
 
 const services = [
@@ -12,6 +12,16 @@ const services = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const closeTimer = useRef(null)
+
+  const openDropdown = () => {
+    clearTimeout(closeTimer.current)
+    setServicesOpen(true)
+  }
+
+  const closeDropdown = () => {
+    closeTimer.current = setTimeout(() => setServicesOpen(false), 80)
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 shadow-sm">
@@ -19,7 +29,7 @@ export default function Navbar() {
       <div className="bg-teal-700 text-white text-xs py-2 px-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <span>📍 1535 Ottawa Street, Windsor, ON</span>
-          <span>Mon–Sat: 8am–5pm &nbsp;|&nbsp; <a href="tel:+12223334444" className="hover:underline">+1-222-333-4444</a></span>
+          <a href="tel:+15199151394" className="hover:underline">+1-519-915-1394</a>
         </div>
       </div>
 
@@ -39,25 +49,32 @@ export default function Navbar() {
           <Link href="/" className="text-sm font-medium text-slate-700 hover:text-teal-600 transition-colors">Home</Link>
 
           {/* Services dropdown */}
-          <div className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+          <div
+            className="relative"
+            onMouseEnter={openDropdown}
+            onMouseLeave={closeDropdown}
           >
             <Link href="/services" className="text-sm font-medium text-slate-700 hover:text-teal-600 transition-colors flex items-center gap-1">
               Clinics & Services
               <svg className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </Link>
             {servicesOpen && (
-              <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50">
-                <div className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider">Our Clinics</div>
-                {services.map(s => (
-                  <Link key={s.href} href={s.href} className="flex flex-col px-4 py-3 hover:bg-teal-50 transition-colors group">
-                    <span className="text-sm font-semibold text-slate-800 group-hover:text-teal-700">{s.name}</span>
-                    <span className="text-xs text-slate-500">{s.desc}</span>
-                  </Link>
-                ))}
-                <div className="border-t border-slate-100 mt-2 pt-2 px-4 pb-1">
-                  <Link href="/services" className="text-xs font-semibold text-teal-600 hover:underline">View all services →</Link>
+              <div
+                className="absolute top-full left-0 mt-0 pt-2 w-72 z-50"
+                onMouseEnter={openDropdown}
+                onMouseLeave={closeDropdown}
+              >
+                <div className="bg-white rounded-xl shadow-xl border border-slate-100 py-2">
+                  <div className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider">Our Clinics</div>
+                  {services.map(s => (
+                    <Link key={s.href} href={s.href} className="flex flex-col px-4 py-3 hover:bg-teal-50 transition-colors group">
+                      <span className="text-sm font-semibold text-slate-800 group-hover:text-teal-700">{s.name}</span>
+                      <span className="text-xs text-slate-500">{s.desc}</span>
+                    </Link>
+                  ))}
+                  <div className="border-t border-slate-100 mt-2 pt-2 px-4 pb-1">
+                    <Link href="/services" className="text-xs font-semibold text-teal-600 hover:underline">View all services →</Link>
+                  </div>
                 </div>
               </div>
             )}

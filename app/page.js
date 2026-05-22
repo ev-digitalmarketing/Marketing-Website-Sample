@@ -44,7 +44,7 @@ export default function Home() {
                 <Link href="/services" className="btn-outline border-white/40 text-white hover:bg-white/10 hover:text-white">Our Clinics & Services</Link>
               </div>
               <div className="flex flex-wrap gap-6 text-sm text-slate-400">
-                <span className="flex items-center gap-1.5"><span className="text-teal-400">📞</span> <a href="tel:+12223334444" className="hover:text-white transition-colors">+1-222-333-4444</a></span>
+                <span className="flex items-center gap-1.5"><span className="text-teal-400">📞</span> <a href="tel:+15199151394" className="hover:text-white transition-colors">+1-519-915-1394</a></span>
                 <span className="flex items-center gap-1.5"><span className="text-teal-400">🕐</span> Mon–Sat 8am–5pm</span>
                 <span className="flex items-center gap-1.5"><span className="text-teal-400">📍</span> 1535 Ottawa St, Windsor</span>
               </div>
@@ -54,7 +54,7 @@ export default function Home() {
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8">
               <h2 className="font-display text-xl font-bold text-white mb-1">Request an Appointment</h2>
               <p className="text-slate-400 text-xs mb-5">Our front desk will contact you to confirm your time.</p>
-              <BookingForm />
+              <BookingForm whiteLabels />
             </div>
           </div>
         </section>
@@ -83,14 +83,14 @@ export default function Home() {
                   <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📞</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm mb-0.5">Phone</h3>
-                    <a href="tel:+12223334444" className="text-teal-600 text-sm hover:underline">+1-222-333-4444</a>
+                    <a href="tel:+15199151394" className="text-teal-600 text-sm hover:underline">+1-519-915-1394</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
                   <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">✉️</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm mb-0.5">Email</h3>
-                    <a href="mailto:info@ottawamedical.ca" className="text-teal-600 text-sm hover:underline">info@ottawamedical.ca</a>
+                    <a href="mailto:info@ottawastreetmedicalcentre.ca" className="text-teal-600 text-sm hover:underline">info@ottawastreetmedicalcentre.ca</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">

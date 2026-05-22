@@ -34,7 +34,7 @@ const ALL_SERVICES = [
 
 const groups = ['Mental Health', 'Physical Health', 'Walk-In Clinic', 'Pharmacy']
 
-export default function BookingForm({ defaultService = '' }) {
+export default function BookingForm({ defaultService = '', whiteLabels = false }) {
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -74,22 +74,22 @@ export default function BookingForm({ defaultService = '' }) {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="form-label">Full Name *</label>
+          <label className={whiteLabels ? "form-label-white" : "form-label"}>Full Name *</label>
           <input name="name" required value={form.name} onChange={handleChange} className="form-input" placeholder="Jane Smith" />
         </div>
         <div>
-          <label className="form-label">Phone Number *</label>
+          <label className={whiteLabels ? "form-label-white" : "form-label"}>Phone Number *</label>
           <input name="phone" required type="tel" value={form.phone} onChange={handleChange} className="form-input" placeholder="+1-519-000-0000" />
         </div>
       </div>
 
       <div>
-        <label className="form-label">Email Address *</label>
+        <label className={whiteLabels ? "form-label-white" : "form-label"}>Email Address *</label>
         <input name="email" required type="email" value={form.email} onChange={handleChange} className="form-input" placeholder="jane@example.com" />
       </div>
 
       <div>
-        <label className="form-label">Service / Reason for Visit *</label>
+        <label className={whiteLabels ? "form-label-white" : "form-label"}>Service / Reason for Visit *</label>
         <select name="service" required value={form.service} onChange={handleChange} className="form-input">
           <option value="">— Select a service —</option>
           {groups.map(group => (
@@ -103,12 +103,12 @@ export default function BookingForm({ defaultService = '' }) {
       </div>
 
       <div>
-        <label className="form-label">Preferred Date</label>
+        <label className={whiteLabels ? "form-label-white" : "form-label"}>Preferred Date</label>
         <input name="preferredDate" type="date" value={form.preferredDate} onChange={handleChange} className="form-input" min={new Date().toISOString().split('T')[0]} />
       </div>
 
       <div>
-        <label className="form-label">Additional Notes</label>
+        <label className={whiteLabels ? "form-label-white" : "form-label"}>Additional Notes</label>
         <textarea name="message" rows={3} value={form.message} onChange={handleChange} className="form-input resize-none" placeholder="Any additional information for the clinic…" />
       </div>
 

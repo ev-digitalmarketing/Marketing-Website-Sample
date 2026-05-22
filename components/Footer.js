@@ -44,8 +44,8 @@ export default function Footer() {
           <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Contact</h4>
           <ul className="space-y-3 text-sm text-slate-400">
             <li className="flex gap-2"><span>📍</span><span>1535 Ottawa Street<br />Windsor, ON</span></li>
-            <li className="flex gap-2"><span>📞</span><a href="tel:+12223334444" className="hover:text-teal-400 transition-colors">+1-222-333-4444</a></li>
-            <li className="flex gap-2"><span>✉️</span><a href="mailto:info@ottawamedical.ca" className="hover:text-teal-400 transition-colors">info@ottawamedical.ca</a></li>
+            <li className="flex gap-2"><span>📞</span><a href="tel:+15199151394" className="hover:text-teal-400 transition-colors">+1-519-915-1394</a></li>
+            <li className="flex gap-2"><span>✉️</span><a href="mailto:info@ottawastreetmedicalcentre.ca" className="hover:text-teal-400 transition-colors">info@ottawastreetmedicalcentre.ca</a></li>
             <li className="flex gap-2"><span>🕐</span><span>Mon–Sat: 8am–5pm</span></li>
           </ul>
         </div>
