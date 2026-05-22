@@ -1,158 +1,103 @@
 'use client'
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import BookingForm from './BookingForm'
 
-// ─── Carousel ────────────────────────────────────────────────────────────────
-// Layout: center card fills ~70% of the track, side cards peek ~15% each.
-// Sliding: the entire strip translates left/right, then snaps.
-// We keep 5 slots rendered (prev2, prev, active, next, next2) so the
-// incoming card is already mounted before the animation starts.
-
-const PEEK = 15          // % of track width each side card peeks
-const CENTER = 100 - PEEK * 2  // ~70%
-const TRANSITION = '0.42s cubic-bezier(0.4, 0, 0.2, 1)'
-
 function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot }) {
-  const total = services.length
+  const scrollRef = useRef(null)
   const [current, setCurrent] = useState(0)
-  const [offset, setOffset] = useState(0)       // live translateX in %
-  const [animating, setAnimating] = useState(false)
-  const [animate, setAnimate] = useState(false)  // whether CSS transition is on
-  const touchStart = useRef(null)
-  const frameRef = useRef(null)
+  const total = services.length
 
-  // Circular helpers
-  const idx = (n) => ((n % total) + total) % total
-
-  // Go in a direction: -1 = prev, +1 = next
-  const go = useCallback((dir) => {
-    if (animating) return
-    setAnimating(true)
-    setAnimate(true)
-    // Slide: each card slot = CENTER%, so slide by that amount
-    setOffset(o => o - dir * CENTER)
-    setTimeout(() => {
-      // After animation, snap back to center without transition
-      setCurrent(c => idx(c + dir))
-      setAnimate(false)
-      setOffset(0)
-      setAnimating(false)
-    }, 430)
-  }, [animating, total])
-
-  // Touch swipe
-  const onTouchStart = (e) => { touchStart.current = e.touches[0].clientX }
-  const onTouchEnd = (e) => {
-    if (touchStart.current === null) return
-    const delta = touchStart.current - e.changedTouches[0].clientX
-    if (Math.abs(delta) > 40) go(delta > 0 ? 1 : -1)
-    touchStart.current = null
+  const scrollTo = (index) => {
+    const el = scrollRef.current
+    if (!el) return
+    const card = el.children[index]
+    if (!card) return
+    // Center the card in the scroll container
+    const offset = card.offsetLeft - el.offsetWidth / 2 + card.offsetWidth / 2
+    el.scrollTo({ left: offset, behavior: 'smooth' })
+    setCurrent(index)
   }
 
-  // We render 5 slots: current-2, current-1, current, current+1, current+2
-  // Track starts offset so slot index 2 (current) is in center position
-  // Base offset puts card[2] centered: translateX starts at -2 * CENTER%
-  // (each card is CENTER% wide, plus peek halved on each side)
-  // Actually we offset so card slot 0 left edge = -2 * CENTER%
-  const baseOffset = -2 * CENTER  // positions slot[2] at center
-  const totalOffset = baseOffset + offset
+  const prev = () => scrollTo(Math.max(0, current - 1))
+  const next = () => scrollTo(Math.min(total - 1, current + 1))
 
-  const slots = [-2, -1, 0, 1, 2].map(d => ({
-    d,
-    sIdx: idx(current + d),
-    isCenter: d === 0,
-  }))
+  // Sync dot indicator when user manually scrolls
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const onScroll = () => {
+      const cardWidth = el.children[0]?.offsetWidth ?? 1
+      const idx = Math.round(el.scrollLeft / cardWidth)
+      setCurrent(Math.max(0, Math.min(total - 1, idx)))
+    }
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [total])
 
   return (
     <div>
-      {/* Viewport — clips to left column, overflow hidden */}
+      {/* Scroll track */}
       <div
-        className="overflow-hidden rounded-2xl"
-        style={{ width: '100%' }}
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
+        ref={scrollRef}
+        style={{
+          display: 'flex',
+          gap: '16px',
+          overflowX: 'auto',
+          scrollSnapType: 'x mandatory',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          paddingBottom: '4px',
+          // Show ~1.1 cards so user knows there's more
+          paddingRight: '15%',
+        }}
       >
-        {/* Track — 5 cards, each CENTER% wide, total = 5 * CENTER% */}
-        <div
-          style={{
-            display: 'flex',
-            width: `${5 * CENTER}%`,
-            transform: `translateX(${totalOffset / 5}%)`,
-            // divide by 5 because width is 5× the outer container
-            // Actually: track is 5*CENTER% of viewport. We want slot[2]
-            // to sit centered. Slot[2] left = 2 * (CENTER / (5*CENTER)) * 100 = 40% of track.
-            // Easier: use px via a container ref, or use the following math:
-            // translateX in track-relative % = totalOffset / 5
-            transition: animate ? `transform ${TRANSITION}` : 'none',
-            willChange: 'transform',
-          }}
-        >
-          {slots.map(({ d, sIdx, isCenter }) => {
-            const s = services[sIdx]
-            return (
+        <style>{`.service-track::-webkit-scrollbar { display: none; }`}</style>
+        {services.map((s, i) => (
+          <div
+            key={i}
+            onClick={() => scrollTo(i)}
+            style={{
+              flexShrink: 0,
+              width: '75%',
+              scrollSnapAlign: 'center',
+              cursor: 'pointer',
+            }}
+          >
+            <div
+              className="rounded-2xl border-2 bg-white p-6 flex flex-col shadow-lg h-full"
+              style={{
+                minHeight: '260px',
+                borderColor: i === current ? accentColor : '#e2e8f0',
+                transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
+                boxShadow: i === current ? `0 8px 30px ${accentColor}22` : undefined,
+              }}
+            >
               <div
-                key={d}
-                onClick={() => { if (!isCenter && !animating) go(d > 0 ? 1 : -1) }}
-                style={{
-                  width: `${100 / 5}%`,  // each slot = 1/5 of track = CENTER% of viewport
-                  flexShrink: 0,
-                  padding: '12px 10px',
-                  cursor: isCenter ? 'default' : 'pointer',
-                  boxSizing: 'border-box',
-                }}
-              >
-                <div
-                  style={{
-                    transform: isCenter ? 'scale(1)' : 'scale(0.92)',
-                    opacity: isCenter ? 1 : 0.45,
-                    filter: isCenter ? 'none' : 'brightness(0.8)',
-                    transition: `transform ${TRANSITION}, opacity ${TRANSITION}, filter ${TRANSITION}`,
-                    height: '300px',
-                  }}
-                >
-                  <div
-                    className={`rounded-2xl border-2 p-6 bg-white h-full flex flex-col shadow-xl ${isCenter ? accentCardBorder : 'border-slate-100'}`}
-                    style={{ transition: `border-color 0.3s ease` }}
-                  >
-                    <div className={`w-3 h-3 rounded-full ${accentDot} mb-5 flex-shrink-0`} />
-                    <h3 className="font-semibold text-slate-800 text-base leading-snug mb-3 flex-shrink-0">{s.name}</h3>
-                    <p
-                      className="text-sm text-slate-500 leading-relaxed flex-1 overflow-hidden"
-                      style={{
-                        opacity: isCenter ? 1 : 0,
-                        transition: `opacity 0.25s ease`,
-                      }}
-                    >
-                      {s.desc}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
+                className={`w-3 h-3 rounded-full mb-5 flex-shrink-0 ${accentDot}`}
+              />
+              <h3 className="font-semibold text-slate-800 text-base leading-snug mb-3">{s.name}</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Nav */}
-      <div className="flex items-center gap-4 mt-5">
+      {/* Arrows + dots */}
+      <div className="flex items-center gap-4 mt-6">
         <button
-          onClick={() => go(-1)}
-          disabled={animating}
-          className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-40 text-lg"
+          onClick={prev}
+          disabled={current === 0}
+          className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-30 text-lg"
         >‹</button>
 
         <div className="flex gap-2">
           {services.map((_, i) => (
             <button
               key={i}
-              onClick={() => {
-                if (animating || i === current) return
-                go(i > current ? 1 : -1)
-                // For multi-step jumps we just step one at a time — simple & clean
-              }}
+              onClick={() => scrollTo(i)}
               className="w-2 h-2 rounded-full transition-all duration-300"
               style={{
                 backgroundColor: i === current ? accentColor : '#cbd5e1',
@@ -163,16 +108,15 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
         </div>
 
         <button
-          onClick={() => go(1)}
-          disabled={animating}
-          className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-40 text-lg"
+          onClick={next}
+          disabled={current === total - 1}
+          className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-30 text-lg"
         >›</button>
       </div>
     </div>
   )
 }
 
-// ─── Page Layout ─────────────────────────────────────────────────────────────
 export default function ServicePageLayout({
   accentGradient,
   accentColor,
@@ -200,10 +144,8 @@ export default function ServicePageLayout({
         {/* ── HERO ── */}
         <section className={`pt-32 pb-0 px-4 bg-gradient-to-br ${accentGradient} text-white relative overflow-hidden`}>
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `radial-gradient(circle at 10% 80%, ${accentColor} 0%, transparent 50%)` }} />
-
           <div className="max-w-6xl mx-auto relative z-10">
             <Link href="/services" className={`${accentLight} text-xs font-semibold hover:underline mb-6 inline-block animate-fade-up`}>← All Clinics & Services</Link>
-
             <div className="pb-12 animate-fade-up" style={{ animationDelay: '0.1s' }}>
               <div className="flex items-center gap-4 mb-4">
                 <div className={`w-14 h-14 ${accentBg} rounded-2xl flex items-center justify-center text-3xl`}>{icon}</div>
@@ -213,7 +155,6 @@ export default function ServicePageLayout({
                 </div>
               </div>
               <p className="text-slate-300 text-lg max-w-xl leading-relaxed mb-6">{subtitle}</p>
-
               <div className="flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: '0.2s' }}>
                 <a href={`tel:${phone.replace(/[^+\d]/g, '')}`} className="flex items-center gap-2.5 bg-white/10 border border-white/20 backdrop-blur-sm rounded-xl px-4 py-3 text-white text-sm font-medium hover:bg-white/20 transition-all">
                   <span className="text-lg">📞</span>
@@ -226,7 +167,6 @@ export default function ServicePageLayout({
               </div>
             </div>
           </div>
-
           <div className="absolute bottom-0 left-0 right-0 h-8 bg-slate-50" style={{ borderRadius: '100% 100% 0 0 / 100% 100% 0 0', transform: 'scaleX(1.5)' }} />
         </section>
 
@@ -234,17 +174,12 @@ export default function ServicePageLayout({
         <section className="bg-slate-50 px-4 relative">
           <div className="max-w-6xl mx-auto">
 
-            {/* Desktop: side-by-side */}
+            {/* Desktop */}
             <div className="hidden lg:grid grid-cols-2 gap-10 items-start">
               <div className="pt-16 pb-10">
                 <p className="section-label">{sectionLabel}</p>
                 <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
-                <ServiceCarousel
-                  services={services}
-                  accentColor={accentColor}
-                  accentCardBorder={accentCardBorder}
-                  accentDot={accentDot}
-                />
+                <ServiceCarousel services={services} accentColor={accentColor} accentCardBorder={accentCardBorder} accentDot={accentDot} />
               </div>
               <div className="pt-8 pb-10 lg:self-start lg:sticky lg:top-28">
                 <div className={`${accentSection} rounded-2xl p-6 shadow-xl border border-white/60`}>
@@ -255,17 +190,12 @@ export default function ServicePageLayout({
               </div>
             </div>
 
-            {/* Mobile: stacked */}
+            {/* Mobile */}
             <div className="lg:hidden">
               <div className="pt-16 pb-8">
                 <p className="section-label">{sectionLabel}</p>
                 <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
-                <ServiceCarousel
-                  services={services}
-                  accentColor={accentColor}
-                  accentCardBorder={accentCardBorder}
-                  accentDot={accentDot}
-                />
+                <ServiceCarousel services={services} accentColor={accentColor} accentCardBorder={accentCardBorder} accentDot={accentDot} />
               </div>
               <div className="pb-10">
                 <div className={`${accentSection} rounded-2xl p-6 shadow-xl border border-white/60`}>
