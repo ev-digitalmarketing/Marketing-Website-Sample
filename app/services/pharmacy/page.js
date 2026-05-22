@@ -1,16 +1,19 @@
-import Navbar from '../../../components/Navbar'
-import Footer from '../../../components/Footer'
-import BookingForm from '../../../components/BookingForm'
-import Link from 'next/link'
+import ServicePageLayout from '../../../components/ServicePageLayout'
 
 const services = [
-  { name: 'Prescription Dispensing', desc: 'Fast, accurate dispensing of prescriptions — especially convenient right after your appointment.' },
+  { name: 'Prescription Dispensing', desc: 'Fast, accurate dispensing of prescriptions — especially convenient right after your appointment upstairs.' },
   { name: 'Medication Synchronization', desc: 'We sync all your refills to the same pick-up date so you only need to come in once a month.' },
   { name: 'Medication Reviews', desc: 'Comprehensive reviews to ensure your medications are working together effectively and safely.' },
   { name: 'Blister Packaging', desc: 'Pre-sorted medication packaging to help you stay on schedule and never miss a dose.' },
   { name: 'Compounding Services', desc: 'Custom-formulated medications tailored to your specific needs when standard options aren\'t suitable.' },
   { name: 'Immunizations & Vaccines', desc: 'Flu shots, travel vaccines, and other immunizations available directly from our pharmacists.' },
   { name: 'Over-the-Counter Products', desc: 'Wide selection of OTC medications, vitamins, and health products available in-store.' },
+]
+
+const whyUs = [
+  { icon: '🏥', title: 'In-Building Convenience', desc: 'Fill your prescription immediately after your appointment — no extra trips, no delays.' },
+  { icon: '🔄', title: 'Sync Your Refills', desc: 'We coordinate all your medications to a single monthly pick-up date for simplicity.' },
+  { icon: '🧪', title: 'Custom Compounding', desc: 'Specially formulated medications when standard dosages or forms don\'t work for you.' },
 ]
 
 export const metadata = {
@@ -20,57 +23,25 @@ export const metadata = {
 
 export default function PharmacyPage() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-emerald-900 to-slate-900 text-white">
-          <div className="max-w-6xl mx-auto">
-            <Link href="/services" className="text-emerald-300 text-xs font-semibold hover:underline mb-4 inline-block">← All Clinics & Services</Link>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 bg-emerald-500/30 rounded-2xl flex items-center justify-center text-3xl">💊</div>
-              <div>
-                <p className="text-emerald-300 text-xs font-bold tracking-widest uppercase">On-Site</p>
-                <h1 className="font-display text-4xl md:text-5xl font-bold">Pharmacy</h1>
-              </div>
-            </div>
-            <p className="text-slate-300 text-lg max-w-2xl leading-relaxed">A full-service pharmacy inside the medical centre — fill your prescription immediately after your appointment without an extra trip.</p>
-          </div>
-        </section>
-
-        <section className="py-20 px-4 bg-slate-50">
-          <div className="max-w-6xl mx-auto">
-            <p className="section-label">What's Available</p>
-            <h2 className="font-display text-3xl font-bold text-slate-900 mb-10">Pharmacy Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {services.map(s => (
-                <div key={s.name} className="card p-6 border border-emerald-50">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
-                    <div>
-                      <h3 className="font-semibold text-slate-800 mb-1">{s.name}</h3>
-                      <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="booking" className="py-20 px-4 bg-emerald-50">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
-              <p className="section-label text-emerald-600">Medication Consultation</p>
-              <h2 className="font-display text-3xl font-bold text-slate-900">Book a Pharmacy Consultation</h2>
-              <p className="text-slate-500 mt-2 text-sm">Request a medication review or compounding consultation and our pharmacist will follow up.</p>
-            </div>
-            <div className="card p-8">
-              <BookingForm defaultService="medication-review" />
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+    <ServicePageLayout
+      accentGradient="from-emerald-900 to-slate-900"
+      accentColor="#059669"
+      accentLight="text-emerald-300"
+      accentBg="bg-emerald-500/30"
+      accentBorder="border-emerald-500/30"
+      accentCardBorder="border-emerald-200"
+      accentDot="bg-emerald-500"
+      accentSection="bg-emerald-50"
+      icon="💊"
+      clinic="On-Site"
+      title="Pharmacy"
+      subtitle="A full-service pharmacy inside the medical centre — fill your prescription immediately after your appointment without an extra trip."
+      phone="+1-519-915-1394"
+      email="pharmacy@ottawastreetmedicalcentre.ca"
+      services={services}
+      whyUs={whyUs}
+      sectionLabel="What's Available"
+      servicesHeading="Pharmacy Services"
+    />
   )
 }

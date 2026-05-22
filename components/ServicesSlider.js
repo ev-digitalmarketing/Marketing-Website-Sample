@@ -68,10 +68,10 @@ export default function ServicesSlider() {
 
   return (
     <>
-      {/* Desktop: normal grid */}
-      <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Desktop: 2x2 grid */}
+      <div className="hidden md:grid grid-cols-2 gap-6 max-w-3xl mx-auto">
         {services.map(s => (
-          <Link key={s.href} href={s.href} className={`card p-6 border ${s.color} hover:scale-[1.02] transition-transform duration-200 group`}>
+          <Link key={s.href} href={s.href} className={`card p-6 border ${s.color} hover:scale-[1.02] transition-transform duration-200 group animate-fade-up`}>
             <div className={`w-12 h-12 rounded-xl ${s.iconBg} flex items-center justify-center text-2xl mb-4`}>{s.icon}</div>
             <h3 className="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-teal-700 transition-colors">{s.title}</h3>
             <ul className="space-y-1.5">
