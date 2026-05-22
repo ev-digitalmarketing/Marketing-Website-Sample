@@ -25,19 +25,22 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 shadow-sm">
-      {/* Top bar — larger text, location right-aligned */}
+      {/* Top bar — location + phone right-aligned */}
       <div className="bg-teal-700 text-white text-sm py-2.5 px-4">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <a href="tel:+15199151394" className="hover:underline font-medium flex items-center gap-1.5">
-            📞 +1-519-915-1394
-          </a>
+        <div className="max-w-6xl mx-auto flex justify-end items-center gap-0">
           <a
             href="https://www.google.com/maps/dir/?api=1&destination=1535+Ottawa+Street+Windsor+ON"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline font-medium flex items-center gap-1.5 transition-opacity hover:opacity-80"
+            className="hover:underline font-medium flex items-center gap-1.5 transition-opacity hover:opacity-80 text-[15px]"
           >
-            📍 1535 Ottawa Street, Windsor, ON
+            <span>📍</span>
+            <span className="hidden sm:inline">1535 Ottawa Street, Windsor, ON</span>
+            <span className="sm:hidden">1535 Ottawa Street</span>
+          </a>
+          <span className="mx-3 opacity-50 font-light select-none">|</span>
+          <a href="tel:+15199151394" className="hover:underline font-medium flex items-center gap-1.5 text-[15px]">
+            <span>📞</span> +1-519-915-1394
           </a>
         </div>
       </div>

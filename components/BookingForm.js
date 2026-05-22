@@ -61,21 +61,23 @@ export default function BookingForm({ whiteLabels = false, hideService = false, 
         <input name="email" required type="email" value={form.email} onChange={handleChange} className="form-input" placeholder="jane@example.com" />
       </div>
 
-      {!hideService && (
-        <div>
-          <label className={whiteLabels ? "form-label-white" : "form-label"}>Service / Clinic *</label>
-          <select name="service" required value={form.service} onChange={handleChange} className="form-input">
-            <option value="">— Select a clinic —</option>
-            {MAIN_SERVICES.map(s => (
-              <option key={s.value} value={s.value}>{s.label}</option>
-            ))}
-          </select>
-        </div>
-      )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {!hideService && (
+          <div>
+            <label className={whiteLabels ? "form-label-white" : "form-label"}>Service / Clinic *</label>
+            <select name="service" required value={form.service} onChange={handleChange} className="form-input">
+              <option value="">— Select a clinic —</option>
+              {MAIN_SERVICES.map(s => (
+                <option key={s.value} value={s.value}>{s.label}</option>
+              ))}
+            </select>
+          </div>
+        )}
 
-      <div>
-        <label className={whiteLabels ? "form-label-white" : "form-label"}>Preferred Date</label>
-        <input name="preferredDate" type="date" value={form.preferredDate} onChange={handleChange} className="form-input" min={new Date().toISOString().split('T')[0]} />
+        <div className={hideService ? "sm:col-span-2" : ""}>
+          <label className={whiteLabels ? "form-label-white" : "form-label"}>Preferred Date</label>
+          <input name="preferredDate" type="date" value={form.preferredDate} onChange={handleChange} className="form-input" min={new Date().toISOString().split('T')[0]} />
+        </div>
       </div>
 
       <div>
