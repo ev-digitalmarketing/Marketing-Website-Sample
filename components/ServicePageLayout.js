@@ -1,95 +1,88 @@
 'use client'
-import { useRef, useState, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import Link from 'next/link'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import BookingForm from './BookingForm'
 
 function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot }) {
-  const scrollRef = useRef(null)
   const [current, setCurrent] = useState(0)
+  const [sliding, setSliding] = useState(false)
+  const [direction, setDirection] = useState(null) // 'left' | 'right'
   const total = services.length
+  const touchStart = useRef(null)
 
-  const scrollTo = (index) => {
-    const el = scrollRef.current
-    if (!el) return
-    const card = el.children[index]
-    if (!card) return
-    // Center the card in the scroll container
-    const offset = card.offsetLeft - el.offsetWidth / 2 + card.offsetWidth / 2
-    el.scrollTo({ left: offset, behavior: 'smooth' })
-    setCurrent(index)
+  const go = (dir) => {
+    if (sliding) return
+    const next = dir === 'right'
+      ? Math.min(total - 1, current + 1)
+      : Math.max(0, current - 1)
+    if (next === current) return
+
+    setDirection(dir)
+    setSliding(true)
+
+    setTimeout(() => {
+      setCurrent(next)
+      setSliding(false)
+      setDirection(null)
+    }, 320)
   }
 
-  const prev = () => scrollTo(Math.max(0, current - 1))
-  const next = () => scrollTo(Math.min(total - 1, current + 1))
+  const goTo = (i) => {
+    if (sliding || i === current) return
+    go(i > current ? 'right' : 'left')
+    // jump directly after animation
+    setTimeout(() => setCurrent(i), 320)
+  }
 
-  // Sync dot indicator when user manually scrolls
-  useEffect(() => {
-    const el = scrollRef.current
-    if (!el) return
-    const onScroll = () => {
-      const cardWidth = el.children[0]?.offsetWidth ?? 1
-      const idx = Math.round(el.scrollLeft / cardWidth)
-      setCurrent(Math.max(0, Math.min(total - 1, idx)))
-    }
-    el.addEventListener('scroll', onScroll, { passive: true })
-    return () => el.removeEventListener('scroll', onScroll)
-  }, [total])
+  const onTouchStart = (e) => { touchStart.current = e.touches[0].clientX }
+  const onTouchEnd = (e) => {
+    if (touchStart.current === null) return
+    const delta = touchStart.current - e.changedTouches[0].clientX
+    if (Math.abs(delta) > 40) go(delta > 0 ? 'right' : 'left')
+    touchStart.current = null
+  }
+
+  // Slide out: current card exits opposite to direction
+  // Slide in: next card enters from the direction
+  const slideOutX = sliding
+    ? direction === 'right' ? '-100%' : '100%'
+    : '0%'
+
+  const s = services[current]
 
   return (
-    <div>
-      {/* Scroll track */}
-      <div
-        ref={scrollRef}
-        style={{
-          display: 'flex',
-          gap: '16px',
-          overflowX: 'auto',
-          scrollSnapType: 'x mandatory',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-          paddingBottom: '4px',
-          // Show ~1.1 cards so user knows there's more
-          paddingRight: '15%',
-        }}
-      >
-        <style>{`.service-track::-webkit-scrollbar { display: none; }`}</style>
-        {services.map((s, i) => (
+    <div onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+      {/* Card viewport — single card, clipped */}
+      <div style={{ overflow: 'hidden', borderRadius: '16px' }}>
+        <div
+          style={{
+            transform: `translateX(${slideOutX})`,
+            transition: sliding ? 'transform 0.32s cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
+            willChange: 'transform',
+          }}
+        >
           <div
-            key={i}
-            onClick={() => scrollTo(i)}
+            className="rounded-2xl border-2 bg-white p-8 flex flex-col shadow-lg"
             style={{
-              flexShrink: 0,
-              width: '75%',
-              scrollSnapAlign: 'center',
-              cursor: 'pointer',
+              minHeight: '260px',
+              borderColor: accentColor,
+              boxShadow: `0 8px 30px ${accentColor}22`,
             }}
           >
-            <div
-              className="rounded-2xl border-2 bg-white p-6 flex flex-col shadow-lg h-full"
-              style={{
-                minHeight: '260px',
-                borderColor: i === current ? accentColor : '#e2e8f0',
-                transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: i === current ? `0 8px 30px ${accentColor}22` : undefined,
-              }}
-            >
-              <div
-                className={`w-3 h-3 rounded-full mb-5 flex-shrink-0 ${accentDot}`}
-              />
-              <h3 className="font-semibold text-slate-800 text-base leading-snug mb-3">{s.name}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
-            </div>
+            <div className={`w-3 h-3 rounded-full mb-5 flex-shrink-0 ${accentDot}`} />
+            <h3 className="font-semibold text-slate-800 text-lg leading-snug mb-3">{s.name}</h3>
+            <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
           </div>
-        ))}
+        </div>
       </div>
 
       {/* Arrows + dots */}
       <div className="flex items-center gap-4 mt-6">
         <button
-          onClick={prev}
-          disabled={current === 0}
+          onClick={() => go('left')}
+          disabled={current === 0 || sliding}
           className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-30 text-lg"
         >‹</button>
 
@@ -97,7 +90,7 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
           {services.map((_, i) => (
             <button
               key={i}
-              onClick={() => scrollTo(i)}
+              onClick={() => goTo(i)}
               className="w-2 h-2 rounded-full transition-all duration-300"
               style={{
                 backgroundColor: i === current ? accentColor : '#cbd5e1',
@@ -108,8 +101,8 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
         </div>
 
         <button
-          onClick={next}
-          disabled={current === total - 1}
+          onClick={() => go('right')}
+          disabled={current === total - 1 || sliding}
           className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-30 text-lg"
         >›</button>
       </div>
@@ -173,7 +166,6 @@ export default function ServicePageLayout({
         {/* ── SERVICES + FORM ── */}
         <section className="bg-slate-50 px-4 relative">
           <div className="max-w-6xl mx-auto">
-
             {/* Desktop */}
             <div className="hidden lg:grid grid-cols-2 gap-10 items-start">
               <div className="pt-16 pb-10">
@@ -189,7 +181,6 @@ export default function ServicePageLayout({
                 </div>
               </div>
             </div>
-
             {/* Mobile */}
             <div className="lg:hidden">
               <div className="pt-16 pb-8">
@@ -205,7 +196,6 @@ export default function ServicePageLayout({
                 </div>
               </div>
             </div>
-
           </div>
         </section>
 
