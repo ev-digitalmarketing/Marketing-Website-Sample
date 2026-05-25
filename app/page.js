@@ -11,13 +11,6 @@ const testimonials = [
   { text: 'The mental health services here are genuinely comprehensive. It\'s rare to find a clinic that takes it as seriously as they do. Made a real difference for me.', name: 'Sarah M.', rating: 5 },
 ]
 
-const faqs = [
-  { q: 'Do I need an appointment for the Walk-In Clinic?', a: 'The walk-in clinic operates on a first-come, first-served basis during regular hours. No booking required.' },
-  { q: 'How do I book an appointment with a specialist?', a: 'Use our booking form above or call us directly. Our front desk will connect you with the right provider.' },
-  { q: 'Is there parking available?', a: 'Yes — dedicated parking for patients and visitors is available right at the facility.' },
-  { q: 'Are all clinics accepting new patients?', a: 'Patient intake varies by provider. Contact us and we\'ll confirm availability for the specific clinic you need.' },
-  { q: 'Is there a pharmacy in the building?', a: 'Yes, our full-service on-site pharmacy can fill prescriptions immediately following your appointment.' },
-]
 
 export default function Home() {
   return (
@@ -131,24 +124,6 @@ export default function Home() {
               <p className="section-label">Patient Stories</p>
               <h2 className="font-display text-3xl font-bold text-slate-900 mb-6">What Our Patients Say</h2>
               <TestimonialsSlider testimonials={testimonials} />
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-20 px-4 bg-slate-50">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="section-label">FAQ</p>
-              <h2 className="font-display text-4xl font-bold text-slate-900">Frequently Asked Questions</h2>
-            </div>
-            <div className="space-y-4">
-              {faqs.map((f, i) => (
-                <div key={i} className="card p-6 animate-fade-up" style={{ animationDelay: `${i * 0.08}s` }}>
-                  <h3 className="font-semibold text-slate-800 mb-2">{f.q}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">{f.a}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>

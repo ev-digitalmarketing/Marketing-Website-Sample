@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const services = [
   { name: 'Mental Health', href: '/services/mental-health', desc: 'Psychiatric & therapy care' },
@@ -48,12 +49,15 @@ export default function Navbar() {
       {/* Main nav */}
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm">OM</div>
-          <div>
-            <div className="font-display font-bold text-slate-900 text-base leading-tight">Ottawa St Medical</div>
-            <div className="text-teal-600 text-xs font-medium">Centre</div>
-          </div>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/Ottawa-Street-Medical-Centre.png"
+            alt="Ottawa Street Medical Centre"
+            width={140}
+            height={56}
+            className="object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
