@@ -63,8 +63,8 @@ export default function Home() {
         <section id="services" className="py-20 px-4 bg-slate-50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <p className="section-label animate-fade-up">What We Offer</p>
-              <h2 className="font-display text-4xl font-bold text-slate-900 animate-fade-up delay-100">Clinics & Services</h2>
+              <p className="section-label animate-fade-up">Clinics & Services</p>
+              <h2 className="font-display text-4xl font-bold text-slate-900 animate-fade-up delay-100">Windsor's Comprehensive Healthcare Facility</h2>
               <p className="text-slate-500 mt-3 max-w-xl mx-auto animate-fade-up delay-200">Ottawa St Medical Centre brings together a range of healthcare services in one location.</p>
             </div>
             <ServicesSlider />
