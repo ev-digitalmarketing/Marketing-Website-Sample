@@ -18,7 +18,7 @@ export default function Home() {
       <Navbar />
       <main>
         {/* Hero — copy left, form right */}
-        <section className="pt-28 pb-16 px-4 bg-gradient-to-br from-slate-900 via-teal-900 to-slate-900 text-white relative overflow-hidden">
+        <section className="pt-36 pb-16 px-4 bg-gradient-to-br from-slate-900 via-teal-900 to-slate-900 text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 60%, #14b8a6 0%, transparent 55%), radial-gradient(circle at 80% 15%, #0ea5e9 0%, transparent 50%)' }}></div>
           <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: copy */}
