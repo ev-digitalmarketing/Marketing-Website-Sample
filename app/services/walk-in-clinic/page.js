@@ -35,7 +35,7 @@ export default function WalkInPage() {
       title="Walk-In Clinic"
       subtitle="Quick, accessible care without the wait. Just come in during clinic hours — open Monday to Saturday, 8am–5pm."
       phone="+1-519-915-1394"
-      email="walkin@ottawastreetmedicalcentre.ca"
+      email="info@ottawastreetmedicalcentre.ca"
       services={services}
       whyUs={whyUs}
       sectionLabel="What's Included"

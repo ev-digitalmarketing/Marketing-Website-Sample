@@ -33,16 +33,16 @@ export default function PharmacyPage() {
       accentSection="bg-emerald-50"
       icon="💊"
       clinic="On-Site"
-      title="Pharmacy"
+      title="Ottawa Street Pharmacy"
       subtitle="A full-service pharmacy inside the medical centre — fill your prescription immediately after your appointment without an extra trip."
-      phone="+1-519-915-1394"
-      email="pharmacy@ottawastreetmedicalcentre.ca"
+      phone="+1-519-915-1250"
+      email="ottawastreetpharmacy786@gmail.com"
       services={services}
       whyUs={whyUs}
       sectionLabel="What's Available"
       servicesHeading="Pharmacy Services"
       showBooking={false}
-      servicesLayout="grid"
+      servicesLayout="list"
     />
   )
 }

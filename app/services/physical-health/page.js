@@ -37,7 +37,7 @@ export default function PhysicalHealthPage() {
       title="Physical Health"
       subtitle="Family medicine and preventive care for patients of all ages — your long-term health partner in Windsor."
       phone="+1-519-915-1394"
-      email="physicalhealth@ottawastreetmedicalcentre.ca"
+      email="info@ottawastreetmedicalcentre.ca"
       services={services}
       whyUs={whyUs}
       sectionLabel="What's Included"
