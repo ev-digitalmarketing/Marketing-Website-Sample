@@ -3,7 +3,6 @@ import ServicePageLayout from '../../../components/ServicePageLayout'
 const services = [
   { name: 'Illness & Injury Assessment', desc: 'Prompt evaluation and treatment for non-emergency illness and injuries — no appointment needed.' },
   { name: 'Prescriptions & Renewals', desc: 'New prescriptions and renewals for eligible medications on the same visit.' },
-  { name: 'Vaccination & Immunization', desc: 'Routine and travel vaccines for all ages, administered by our clinical team.' },
   { name: 'Blood Pressure & Vitals', desc: 'Quick vital signs checks and blood pressure monitoring for your peace of mind.' },
   { name: 'STI Testing', desc: 'Confidential screening and testing for sexually transmitted infections.' },
   { name: 'Sick Notes', desc: 'Documentation for work or school absences due to illness, issued same-day.' },
@@ -41,6 +40,8 @@ export default function WalkInPage() {
       whyUs={whyUs}
       sectionLabel="What's Included"
       servicesHeading="Walk-In Services"
+      showBooking={false}
+      servicesLayout="list"
     />
   )
 }

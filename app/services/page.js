@@ -31,7 +31,7 @@ const clinics = [
     href: '/services/walk-in-clinic',
     tagline: 'No Appointment Needed — Open to All',
     description: 'Quick, accessible care without the wait. Our walk-in clinic handles everything from minor illness and injury to prescription renewals, vaccinations, and more.',
-    services: ['Illness & Injury Assessment', 'Prescriptions & Renewals', 'Vaccination & Immunization', 'Blood Pressure & Vitals', 'STI Testing', 'Sick Notes'],
+    services: ['Illness & Injury Assessment', 'Prescriptions & Renewals', 'Blood Pressure & Vitals', 'STI Testing', 'Sick Notes'],
     accent: 'sky',
     accentColor: '#0284c7',
   },
@@ -41,7 +41,7 @@ const clinics = [
     href: '/services/pharmacy',
     tagline: 'On-Site Full-Service Pharmacy',
     description: 'Our on-site pharmacy makes it easy to fill your prescriptions immediately after your appointment. We offer comprehensive pharmaceutical care and medication management services.',
-    services: ['Prescription Dispensing', 'Medication Reviews', 'Medication Synchronization', 'Blister Packaging', 'Compounding Services', 'Immunizations & Vaccines', 'Over-the-Counter Products'],
+    services: ['Prescription Dispensing', 'Medication Reviews', 'Medication Synchronization', 'Blister Packaging', 'Compounding Services', 'Over-the-Counter Products'],
     accent: 'emerald',
     accentColor: '#059669',
   },
@@ -101,8 +101,10 @@ function ClinicsSlider() {
                 ))}
               </div>
               <div className="flex gap-3">
-                <Link href={clinic.href} className={`btn-primary ${a.btn} text-sm`}>Learn More & Book</Link>
-                <Link href={`/contact#booking`} className="btn-outline text-sm">Quick Book</Link>
+                <Link href={clinic.href} className={`btn-primary ${a.btn} text-sm`}>Learn More</Link>
+                {clinic.accent !== 'sky' && clinic.accent !== 'emerald' && (
+                  <Link href={`/contact#booking`} className="btn-outline text-sm">Quick Book</Link>
+                )}
               </div>
             </div>
           )
@@ -150,7 +152,7 @@ function ClinicsSlider() {
                       style={{ color: clinic.accentColor }}
                       onClick={e => e.stopPropagation()}
                     >
-                      Learn more & book →
+                      Learn more →
                     </Link>
                   )}
                 </div>

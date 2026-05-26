@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -7,11 +8,13 @@ export default function Footer() {
         {/* Brand */}
         <div className="md:col-span-1">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm">OM</div>
-            <div>
-              <div className="font-display font-bold text-white text-base leading-tight">Ottawa St Medical</div>
-              <div className="text-teal-400 text-xs font-medium">Centre</div>
-            </div>
+            <Image
+              src="/Ottawa-Street-Medical-Centre-icon.png"
+              alt="Ottawa Street Medical Centre"
+              width={52}
+              height={52}
+              className="object-contain"
+            />
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">Windsor's complete medical facility — designed to make healthcare more accessible and less complicated.</p>
         </div>

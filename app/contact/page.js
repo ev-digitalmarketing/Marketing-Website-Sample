@@ -12,7 +12,7 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main>
-        <section className="pt-28 pb-16 px-4 bg-gradient-to-br from-slate-800 to-teal-900 text-white">
+        <section className="pt-36 pb-16 px-4 bg-gradient-to-br from-slate-800 to-teal-900 text-white">
           <div className="max-w-6xl mx-auto text-center">
             <p className="section-label text-teal-300">Get in Touch</p>
             <h1 className="font-display text-5xl font-bold mb-4">Contact Us</h1>
@@ -60,15 +60,19 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Map embed placeholder */}
-              <div className="rounded-2xl overflow-hidden border border-slate-200 h-48 bg-slate-100 flex items-center justify-center">
-                <div className="text-center text-slate-400">
-                  <div className="text-3xl mb-2">🗺️</div>
-                  <p className="text-sm">Replace with Google Maps embed</p>
-                  <p className="text-xs">1535 Ottawa Street, Windsor, ON</p>
-                </div>
+              {/* Map embed */}
+              <div className="rounded-2xl overflow-hidden border border-slate-200 h-48">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2950.123456789!2d-83.0167!3d42.3149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883b2d5c1234abcd%3A0xabcdef1234567890!2s1535+Ottawa+St%2C+Windsor%2C+ON+N8X+2G4!5e0!3m2!1sen!2sca!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ottawa Street Medical Centre Location"
+                ></iframe>
               </div>
-              <p className="text-xs text-slate-400 mt-2">To embed a real map: paste a Google Maps &lt;iframe&gt; embed code in place of the placeholder above.</p>
             </div>
 
             {/* Form */}

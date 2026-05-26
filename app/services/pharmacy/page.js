@@ -6,7 +6,6 @@ const services = [
   { name: 'Medication Reviews', desc: 'Comprehensive reviews to ensure your medications are working together effectively and safely.' },
   { name: 'Blister Packaging', desc: 'Pre-sorted medication packaging to help you stay on schedule and never miss a dose.' },
   { name: 'Compounding Services', desc: 'Custom-formulated medications tailored to your specific needs when standard options aren\'t suitable.' },
-  { name: 'Immunizations & Vaccines', desc: 'Flu shots, travel vaccines, and other immunizations available directly from our pharmacists.' },
   { name: 'Over-the-Counter Products', desc: 'Wide selection of OTC medications, vitamins, and health products available in-store.' },
 ]
 
@@ -42,6 +41,8 @@ export default function PharmacyPage() {
       whyUs={whyUs}
       sectionLabel="What's Available"
       servicesHeading="Pharmacy Services"
+      showBooking={false}
+      servicesLayout="grid"
     />
   )
 }

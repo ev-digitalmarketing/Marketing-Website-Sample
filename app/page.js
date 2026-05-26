@@ -65,7 +65,7 @@ export default function Home() {
             <div className="text-center mb-12">
               <p className="section-label animate-fade-up">Clinics & Services</p>
               <h2 className="font-display text-4xl font-bold text-slate-900 animate-fade-up delay-100">Windsor's Comprehensive Healthcare Facility</h2>
-              <p className="text-slate-500 mt-3 max-w-xl mx-auto animate-fade-up delay-200">Ottawa St Medical Centre brings together a range of healthcare services in one location.</p>
+              <p className="text-slate-500 mt-3 max-w-xl mx-auto animate-fade-up delay-200">Ottawa Street Medical Centre brings together a range of healthcare services in one location.</p>
             </div>
             <ServicesSlider />
           </div>

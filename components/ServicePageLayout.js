@@ -8,7 +8,7 @@ import BookingForm from './BookingForm'
 function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot }) {
   const [current, setCurrent] = useState(0)
   const [sliding, setSliding] = useState(false)
-  const [direction, setDirection] = useState(null) // 'left' | 'right'
+  const [direction, setDirection] = useState(null)
   const total = services.length
   const touchStart = useRef(null)
 
@@ -18,10 +18,8 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
       ? Math.min(total - 1, current + 1)
       : Math.max(0, current - 1)
     if (next === current) return
-
     setDirection(dir)
     setSliding(true)
-
     setTimeout(() => {
       setCurrent(next)
       setSliding(false)
@@ -32,7 +30,6 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
   const goTo = (i) => {
     if (sliding || i === current) return
     go(i > current ? 'right' : 'left')
-    // jump directly after animation
     setTimeout(() => setCurrent(i), 320)
   }
 
@@ -44,8 +41,6 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
     touchStart.current = null
   }
 
-  // Slide out: current card exits opposite to direction
-  // Slide in: next card enters from the direction
   const slideOutX = sliding
     ? direction === 'right' ? '-100%' : '100%'
     : '0%'
@@ -54,7 +49,6 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
 
   return (
     <div onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-      {/* Card viewport — single card, clipped */}
       <div style={{ overflow: 'hidden', borderRadius: '16px' }}>
         <div
           style={{
@@ -78,7 +72,6 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
         </div>
       </div>
 
-      {/* Arrows + dots */}
       <div className="flex items-center gap-4 mt-6">
         <button
           onClick={() => go('left')}
@@ -110,6 +103,47 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
   )
 }
 
+// Flat card grid for pharmacy (no slider)
+function ServiceGrid({ services, accentColor, accentDot }) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {services.map((s, i) => (
+        <div
+          key={i}
+          className="rounded-2xl border-2 bg-white p-6 shadow-sm flex flex-col"
+          style={{ borderColor: `${accentColor}33` }}
+        >
+          <div className={`w-3 h-3 rounded-full mb-3 flex-shrink-0 ${accentDot}`} />
+          <h3 className="font-semibold text-slate-800 text-sm leading-snug mb-2">{s.name}</h3>
+          <p className="text-xs text-slate-500 leading-relaxed">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// Full-width single-card list for walk-in clinic
+function ServiceList({ services, accentColor, accentDot }) {
+  return (
+    <div className="rounded-2xl border-2 bg-white shadow-lg overflow-hidden" style={{ borderColor: accentColor }}>
+      <div className="px-8 py-5 border-b" style={{ borderColor: `${accentColor}33`, backgroundColor: `${accentColor}08` }}>
+        <h3 className="font-display text-xl font-bold text-slate-900">Services</h3>
+      </div>
+      <div className="divide-y divide-slate-100">
+        {services.map((s, i) => (
+          <div key={i} className="flex gap-4 items-start px-8 py-5">
+            <div className={`w-2.5 h-2.5 rounded-full mt-1.5 flex-shrink-0 ${accentDot}`} />
+            <div>
+              <h4 className="font-semibold text-slate-800 text-sm mb-1">{s.name}</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function ServicePageLayout({
   accentGradient,
   accentColor,
@@ -129,7 +163,26 @@ export default function ServicePageLayout({
   whyUs,
   sectionLabel,
   servicesHeading,
+  showBooking = true,   // set false for walk-in & pharmacy
+  servicesLayout = 'slider', // 'slider' | 'grid' | 'list'
 }) {
+  const renderServices = () => {
+    if (servicesLayout === 'grid') {
+      return <ServiceGrid services={services} accentColor={accentColor} accentDot={accentDot} />
+    }
+    if (servicesLayout === 'list') {
+      return <ServiceList services={services} accentColor={accentColor} accentDot={accentDot} />
+    }
+    return (
+      <ServiceCarousel
+        services={services}
+        accentColor={accentColor}
+        accentCardBorder={accentCardBorder}
+        accentDot={accentDot}
+      />
+    )
+  }
+
   return (
     <>
       <Navbar />
@@ -163,39 +216,50 @@ export default function ServicePageLayout({
           <div className="absolute bottom-0 left-0 right-0 h-8 bg-slate-50" style={{ borderRadius: '100% 100% 0 0 / 100% 100% 0 0', transform: 'scaleX(1.5)' }} />
         </section>
 
-        {/* ── SERVICES + FORM ── */}
+        {/* ── SERVICES (+ optional FORM) ── */}
         <section className="bg-slate-50 px-4 relative">
           <div className="max-w-6xl mx-auto">
-            {/* Desktop */}
-            <div className="hidden lg:grid grid-cols-2 gap-10 items-start">
-              <div className="pt-16 pb-10">
+            {showBooking ? (
+              <>
+                {/* Desktop: services left, form right */}
+                <div className="hidden lg:grid grid-cols-2 gap-10 items-start">
+                  <div className="pt-16 pb-10">
+                    <p className="section-label">{sectionLabel}</p>
+                    <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
+                    {renderServices()}
+                  </div>
+                  <div className="pt-8 pb-10 lg:self-start lg:sticky lg:top-28">
+                    <div className={`${accentSection} rounded-2xl p-6 shadow-xl border border-white/60`}>
+                      <h2 className="font-display text-xl font-bold text-slate-900 mb-1">Request an Appointment</h2>
+                      <p className="text-slate-500 text-xs mb-5">Our front desk will contact you to confirm your time.</p>
+                      <BookingForm hideService={true} />
+                    </div>
+                  </div>
+                </div>
+                {/* Mobile */}
+                <div className="lg:hidden">
+                  <div className="pt-16 pb-8">
+                    <p className="section-label">{sectionLabel}</p>
+                    <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
+                    {renderServices()}
+                  </div>
+                  <div className="pb-10">
+                    <div className={`${accentSection} rounded-2xl p-6 shadow-xl border border-white/60`}>
+                      <h2 className="font-display text-xl font-bold text-slate-900 mb-1">Request an Appointment</h2>
+                      <p className="text-slate-500 text-xs mb-5">Our front desk will contact you to confirm your time.</p>
+                      <BookingForm hideService={true} />
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              /* Full-width services, no form */
+              <div className="pt-16 pb-16">
                 <p className="section-label">{sectionLabel}</p>
                 <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
-                <ServiceCarousel services={services} accentColor={accentColor} accentCardBorder={accentCardBorder} accentDot={accentDot} />
+                {renderServices()}
               </div>
-              <div className="pt-8 pb-10 lg:self-start lg:sticky lg:top-28">
-                <div className={`${accentSection} rounded-2xl p-6 shadow-xl border border-white/60`}>
-                  <h2 className="font-display text-xl font-bold text-slate-900 mb-1">Request an Appointment</h2>
-                  <p className="text-slate-500 text-xs mb-5">Our front desk will contact you to confirm your time.</p>
-                  <BookingForm hideService={true} />
-                </div>
-              </div>
-            </div>
-            {/* Mobile */}
-            <div className="lg:hidden">
-              <div className="pt-16 pb-8">
-                <p className="section-label">{sectionLabel}</p>
-                <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
-                <ServiceCarousel services={services} accentColor={accentColor} accentCardBorder={accentCardBorder} accentDot={accentDot} />
-              </div>
-              <div className="pb-10">
-                <div className={`${accentSection} rounded-2xl p-6 shadow-xl border border-white/60`}>
-                  <h2 className="font-display text-xl font-bold text-slate-900 mb-1">Request an Appointment</h2>
-                  <p className="text-slate-500 text-xs mb-5">Our front desk will contact you to confirm your time.</p>
-                  <BookingForm hideService={true} />
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </section>
 

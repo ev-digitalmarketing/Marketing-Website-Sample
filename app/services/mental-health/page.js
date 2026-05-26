@@ -6,8 +6,6 @@ const services = [
   { name: 'Medication Management', desc: 'Professional oversight of psychiatric prescriptions focused on finding your optimal balance while carefully monitoring side effects.' },
   { name: 'Counselling & Therapy', desc: 'One-on-one therapeutic sessions in a safe, confidential environment tailored to your needs and goals.' },
   { name: 'TMS & Ketamine Treatment', desc: 'Advanced treatment options for treatment-resistant depression and other conditions, administered by qualified specialists.' },
-  { name: 'Crisis Intervention', desc: 'Immediate mental health support for acute psychological crises, with pathways to ongoing care.' },
-  { name: 'Cognitive Behaviour Therapy (CBT)', desc: 'Evidence-based therapy that helps you identify and change negative thought patterns affecting your mood and behaviour.' },
 ]
 
 const whyUs = [
