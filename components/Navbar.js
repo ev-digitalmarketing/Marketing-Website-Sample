@@ -47,15 +47,15 @@ export default function Navbar() {
       </div>
 
       {/* Main nav */}
-      <div className="max-w-6xl mx-auto px-4 h-24 flex items-center justify-between">
-        {/* Logo */}
+      <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+        {/* Logo — icon only, no text */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/Ottawa-Street-Medical-Centre.png"
+            src="/Ottawa-Street-Medical-Centre-icon.png"
             alt="Ottawa Street Medical Centre"
-            width={90}
-            height={90}
-            className="object-contain w-[90px] h-[90px]"
+            width={70}
+            height={70}
+            className="object-contain w-[70px] h-[70px]"
             priority
           />
         </Link>

@@ -1,24 +1,19 @@
 'use client'
 import { useState } from 'react'
 
-// Simplified top-level services for the main form
 const MAIN_SERVICES = [
   { value: 'mental-health', label: 'Mental Health' },
   { value: 'physical-health', label: 'Physical Health' },
-  { value: 'walk-in-clinic', label: 'Walk-In Clinic' },
-  { value: 'pharmacy', label: 'Pharmacy' },
 ]
 
 export default function BookingForm({ whiteLabels = false, hideService = false, defaultService = '' }) {
   const [form, setForm] = useState({
     name: '',
-    email: '',
-    phone: '',
+    contact: '',
     service: defaultService,
-    preferredDate: '',
     message: '',
   })
-  const [status, setStatus] = useState(null) // null | 'sending' | 'sent' | 'error'
+  const [status, setStatus] = useState(null)
 
   const handleChange = (e) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -37,7 +32,7 @@ export default function BookingForm({ whiteLabels = false, hideService = false, 
         <div className="text-4xl mb-3">✅</div>
         <h3 className="font-display text-xl font-bold text-teal-800 mb-2">Appointment Request Received!</h3>
         <p className="text-sm text-teal-700">Our front desk will be in touch shortly to confirm your appointment time.</p>
-        <button onClick={() => { setStatus(null); setForm({ name:'',email:'',phone:'',service: defaultService, preferredDate:'', message:'' }) }}
+        <button onClick={() => { setStatus(null); setForm({ name:'', contact:'', service: defaultService, message:'' }) }}
           className="mt-4 text-sm text-teal-600 underline">Submit another request</button>
       </div>
     )
@@ -51,34 +46,22 @@ export default function BookingForm({ whiteLabels = false, hideService = false, 
           <input name="name" required value={form.name} onChange={handleChange} className="form-input" placeholder="Jane Smith" />
         </div>
         <div>
-          <label className={whiteLabels ? "form-label-white" : "form-label"}>Phone Number *</label>
-          <input name="phone" required type="tel" value={form.phone} onChange={handleChange} className="form-input" placeholder="+1-519-000-0000" />
+          <label className={whiteLabels ? "form-label-white" : "form-label"}>Email / Phone *</label>
+          <input name="contact" required value={form.contact} onChange={handleChange} className="form-input" placeholder="Contact info" />
         </div>
       </div>
 
-      <div>
-        <label className={whiteLabels ? "form-label-white" : "form-label"}>Email Address *</label>
-        <input name="email" required type="email" value={form.email} onChange={handleChange} className="form-input" placeholder="jane@example.com" />
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {!hideService && (
-          <div>
-            <label className={whiteLabels ? "form-label-white" : "form-label"}>Service / Clinic *</label>
-            <select name="service" required value={form.service} onChange={handleChange} className="form-input">
-              <option value="">— Select a clinic —</option>
-              {MAIN_SERVICES.map(s => (
-                <option key={s.value} value={s.value}>{s.label}</option>
-              ))}
-            </select>
-          </div>
-        )}
-
-        <div className={hideService ? "sm:col-span-2" : ""}>
-          <label className={whiteLabels ? "form-label-white" : "form-label"}>Preferred Date</label>
-          <input name="preferredDate" type="date" value={form.preferredDate} onChange={handleChange} className="form-input" min={new Date().toISOString().split('T')[0]} />
+      {!hideService && (
+        <div>
+          <label className={whiteLabels ? "form-label-white" : "form-label"}>Service / Clinic *</label>
+          <select name="service" required value={form.service} onChange={handleChange} className="form-input">
+            <option value="">— Select a clinic —</option>
+            {MAIN_SERVICES.map(s => (
+              <option key={s.value} value={s.value}>{s.label}</option>
+            ))}
+          </select>
         </div>
-      </div>
+      )}
 
       <div>
         <label className={whiteLabels ? "form-label-white" : "form-label"}>Additional Notes</label>

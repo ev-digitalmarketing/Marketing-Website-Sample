@@ -18,7 +18,7 @@ export default function Home() {
       <Navbar />
       <main>
         {/* Hero — copy left, form right */}
-        <section className="pt-36 pb-16 px-4 bg-gradient-to-br from-slate-900 via-teal-900 to-slate-900 text-white relative overflow-hidden">
+        <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-slate-900 via-teal-900 to-slate-900 text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 60%, #14b8a6 0%, transparent 55%), radial-gradient(circle at 80% 15%, #0ea5e9 0%, transparent 50%)' }}></div>
           <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: copy */}
@@ -27,16 +27,13 @@ export default function Home() {
                 Windsor's Full-Suite Medical Facility
               </div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5 animate-fade-up delay-100">
-                Complete Care,<br />
-                <span className="text-teal-400">One Location.</span>
+                Ottawa Street<br />
+                <span className="text-teal-400">Medical Centre</span>
               </h1>
               <p className="text-slate-300 text-lg leading-relaxed mb-6 max-w-lg animate-fade-up delay-200">
-                Mental health, physical health, walk-in services and pharmacy — all under one roof at 1535 Ottawa Street.
+                Mental health, physical health, walk-in services and pharmacy all under one roof.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8 animate-fade-up delay-300">
-                <Link href="/services" className="btn-outline border-white/40 text-white hover:bg-white/10 hover:text-white">Our Clinics & Services</Link>
-              </div>
-              <div className="flex flex-wrap gap-6 text-sm text-slate-400 animate-fade-up delay-400">
+              <div className="flex flex-wrap gap-6 text-sm text-slate-400 animate-fade-up delay-300 mb-8">
                 <span className="flex items-center gap-1.5"><span className="text-teal-400">📞</span> <a href="tel:+15199151394" className="hover:text-white transition-colors">+1-519-915-1394</a></span>
                 <span className="flex items-center gap-1.5"><span className="text-teal-400">🕐</span> Mon–Sat 8am–5pm</span>
                 <a
@@ -45,8 +42,11 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-white transition-colors"
                 >
-                  <span className="text-teal-400">📍</span> 1535 Ottawa St, Windsor
+                  <span className="text-teal-400">📍</span> 1535 Ottawa Street
                 </a>
+              </div>
+              <div className="flex flex-wrap gap-3 animate-fade-up delay-400">
+                <Link href="/services" className="btn-outline border-white/40 text-white hover:bg-white/10 hover:text-white">Our Clinics & Services</Link>
               </div>
             </div>
 
