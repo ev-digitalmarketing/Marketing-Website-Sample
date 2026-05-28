@@ -72,7 +72,6 @@ export default function BookingForm({ whiteLabels = false, hideService = false, 
         className="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed">
         {status === 'sending' ? 'Sending…' : 'Request Appointment'}
       </button>
-      <p className="text-xs text-slate-400 text-center">Our front desk will contact you to confirm a time. Walk-in visits don't require a booking.</p>
     </form>
   )
 }

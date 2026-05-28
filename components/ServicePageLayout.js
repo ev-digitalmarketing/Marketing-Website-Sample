@@ -231,7 +231,7 @@ export default function ServicePageLayout({
                   <div className="pt-8 pb-10 lg:self-start lg:sticky lg:top-28">
                     <div className={`${accentSection} rounded-2xl p-6 shadow-xl border border-white/60`}>
                       <h2 className="font-display text-xl font-bold text-slate-900 mb-1">Request an Appointment</h2>
-                      <p className="text-slate-500 text-xs mb-5">Our front desk will contact you to confirm your time.</p>
+                      <p className="text-slate-500 text-xs mb-5">Our front desk will contact you to confirm a time. Walk-in Clinic and Pharmacy visits don't require a booking.</p>
                       <BookingForm hideService={true} />
                     </div>
                   </div>
@@ -246,7 +246,7 @@ export default function ServicePageLayout({
                   <div className="pb-10">
                     <div className={`${accentSection} rounded-2xl p-6 shadow-xl border border-white/60`}>
                       <h2 className="font-display text-xl font-bold text-slate-900 mb-1">Request an Appointment</h2>
-                      <p className="text-slate-500 text-xs mb-5">Our front desk will contact you to confirm your time.</p>
+                      <p className="text-slate-500 text-xs mb-5">Our front desk will contact you to confirm a time. Walk-in Clinic and Pharmacy visits don't require a booking.</p>
                       <BookingForm hideService={true} />
                     </div>
                   </div>

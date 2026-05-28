@@ -77,7 +77,8 @@ export default function ContactPage() {
 
             {/* Form */}
             <div className="card p-8">
-              <h3 className="font-display text-xl font-bold text-slate-900 mb-6">Appointment Request Form</h3>
+              <h3 className="font-display text-xl font-bold text-slate-900 mb-1">Appointment Request Form</h3>
+              <p className="text-slate-500 text-xs mb-5">Our front desk will contact you to confirm a time. Walk-in Clinic and Pharmacy visits don't require a booking.</p>
               <BookingForm />
             </div>
           </div>

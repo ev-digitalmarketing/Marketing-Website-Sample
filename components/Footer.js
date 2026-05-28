@@ -15,6 +15,7 @@ export default function Footer() {
               height={52}
               className="object-contain"
             />
+            <span className="text-white font-semibold text-base leading-tight">Ottawa Street<br />Medical</span>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">Windsor's complete medical facility — designed to make healthcare more accessible and less complicated.</p>
         </div>
@@ -56,8 +57,7 @@ export default function Footer() {
 
       <div className="border-t border-slate-800">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
-          <p>© 2026 Ottawa Street Medical Centre. All rights reserved.</p>
-          <p className="mt-1 md:mt-0">Website by EV Digital</p>
+          <p>© 2026 Ottawa Street Medical Centre | Website by <a href="https://elevateviral.com/" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">EV Digital Marketing</a></p>
         </div>
       </div>
     </footer>

@@ -5,7 +5,6 @@ const services = [
   { name: 'Medication Synchronization', desc: 'We sync all your refills to the same pick-up date so you only need to come in once a month.' },
   { name: 'Medication Reviews', desc: 'Comprehensive reviews to ensure your medications are working together effectively and safely.' },
   { name: 'Blister Packaging', desc: 'Pre-sorted medication packaging to help you stay on schedule and never miss a dose.' },
-  { name: 'Compounding Services', desc: 'Custom-formulated medications tailored to your specific needs when standard options aren\'t suitable.' },
   { name: 'Over-the-Counter Products', desc: 'Wide selection of OTC medications, vitamins, and health products available in-store.' },
 ]
 

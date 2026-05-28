@@ -53,7 +53,7 @@ export default function Home() {
             {/* Right: booking form */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 animate-slide-right delay-200">
               <h2 className="font-display text-xl font-bold text-white mb-1">Request an Appointment</h2>
-              <p className="text-slate-400 text-xs mb-5">Our front desk will contact you to confirm your time.</p>
+              <p className="text-slate-400 text-xs mb-5">Our front desk will contact you to confirm a time. Walk-in Clinic and Pharmacy visits don't require a booking.</p>
               <BookingForm whiteLabels />
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-8 bg-teal-50 border border-teal-100 rounded-xl p-4 text-sm text-teal-800">
-                <strong>Walk-In Clinic:</strong> No appointment needed — just come in during operating hours.
+                <strong>Walk-In Clinic and Pharmacy:</strong> No appointment needed — just come in during operating hours.
               </div>
             </div>
             {/* Testimonials slider */}
