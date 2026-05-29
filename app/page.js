@@ -18,42 +18,42 @@ export default function Home() {
       <Navbar />
       <main>
         {/* Hero — copy left, form right */}
-        <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-emerald-300 via-teal-400 to-emerald-600 text-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 15% 65%, #6ee7b7 0%, transparent 50%), radial-gradient(circle at 85% 10%, #059669 0%, transparent 55%)' }}></div>
+        <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-green-300 via-green-500 to-green-700 text-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 15% 65%, #86efac 0%, transparent 50%), radial-gradient(circle at 85% 10%, #15803d 0%, transparent 55%)' }}></div>
           <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: copy */}
             <div>
-              <div className="inline-flex items-center gap-2 bg-emerald-900/15 border border-emerald-900/25 rounded-full px-4 py-1.5 text-emerald-900 text-xs font-semibold mb-6 tracking-wide uppercase animate-fade-up">
+              <div className="inline-flex items-center gap-2 bg-green-900/15 border border-green-900/25 rounded-full px-4 py-1.5 text-green-900 text-xs font-semibold mb-6 tracking-wide uppercase animate-fade-up">
                 Windsor's Full-Suite Medical Facility
               </div>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5 animate-fade-up delay-100 text-emerald-950">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5 animate-fade-up delay-100 text-green-950">
                 Ottawa Street<br />
-                <span className="text-emerald-900">Medical Centre</span>
+                <span className="text-green-900">Medical Centre</span>
               </h1>
-              <p className="text-emerald-900/80 text-lg leading-relaxed mb-6 max-w-lg animate-fade-up delay-200">
+              <p className="text-green-900/80 text-lg leading-relaxed mb-6 max-w-lg animate-fade-up delay-200">
                 Mental health, physical health, walk-in services and pharmacy all under one roof.
               </p>
-              <div className="flex flex-wrap gap-6 text-sm text-emerald-900/70 animate-fade-up delay-300 mb-8">
-                <span className="flex items-center gap-1.5"><span>📞</span> <a href="tel:+15199151394" className="hover:text-emerald-900 transition-colors">+1-519-915-1394</a></span>
+              <div className="flex flex-wrap gap-6 text-sm text-green-900/70 animate-fade-up delay-300 mb-8">
+                <span className="flex items-center gap-1.5"><span>📞</span> <a href="tel:+15199151394" className="hover:text-green-900 transition-colors">+1-519-915-1394</a></span>
                 <span className="flex items-center gap-1.5"><span>🕐</span> Mon–Sat 8am–5pm</span>
                 <a
                   href="https://www.google.com/maps/dir/?api=1&destination=1535+Ottawa+Street+Windsor+ON"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 hover:text-emerald-900 transition-colors"
+                  className="flex items-center gap-1.5 hover:text-green-900 transition-colors"
                 >
                   <span>📍</span> 1535 Ottawa Street
                 </a>
               </div>
               <div className="flex flex-wrap gap-3 animate-fade-up delay-400">
-                <Link href="/services" className="btn-outline border-emerald-900/40 text-emerald-900 hover:bg-emerald-900/10 hover:text-emerald-900">Our Clinics & Services</Link>
+                <Link href="/services" className="btn-outline border-green-900/40 text-green-900 hover:bg-green-900/10 hover:text-green-900">Our Clinics & Services</Link>
               </div>
             </div>
 
             {/* Right: booking form */}
             <div className="bg-white/30 backdrop-blur-sm border border-white/40 rounded-2xl p-6 md:p-8 animate-slide-right delay-200">
-              <h2 className="font-display text-xl font-bold text-emerald-950 mb-1">Request an Appointment</h2>
-              <p className="text-emerald-900/70 text-xs mb-5">Our front desk will contact you to confirm a time. Walk-in Clinic and Pharmacy visits don't require a booking.</p>
+              <h2 className="font-display text-xl font-bold text-green-950 mb-1">Request an Appointment</h2>
+              <p className="text-green-900/70 text-xs mb-5">Our front desk will contact you to confirm a time. Walk-in Clinic and Pharmacy visits don't require a booking.</p>
               <BookingForm whiteLabels />
             </div>
           </div>
