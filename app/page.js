@@ -18,8 +18,7 @@ export default function Home() {
       <Navbar />
       <main>
         {/* Hero — copy left, form right */}
-        <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-green-300 via-green-500 to-green-700 text-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 15% 65%, #86efac 0%, transparent 50%), radial-gradient(circle at 85% 10%, #15803d 0%, transparent 55%)' }}></div>
+        <section className="pt-32 pb-16 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #ccfbf1 60%, #d1fae5 100%)' }}>
           <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: copy */}
             <div>
@@ -51,7 +50,7 @@ export default function Home() {
             </div>
 
             {/* Right: booking form */}
-            <div className="bg-white/30 backdrop-blur-sm border border-white/40 rounded-2xl p-6 md:p-8 animate-slide-right delay-200">
+            <div className="bg-white/70 backdrop-blur-sm border border-teal-100 rounded-2xl p-6 md:p-8 animate-slide-right delay-200 shadow-sm">
               <h2 className="font-display text-xl font-bold text-green-950 mb-1">Request an Appointment</h2>
               <p className="text-green-900/70 text-xs mb-5">Our front desk will contact you to confirm a time. Walk-in Clinic and Pharmacy visits don't require a booking.</p>
               <BookingForm whiteLabels />
