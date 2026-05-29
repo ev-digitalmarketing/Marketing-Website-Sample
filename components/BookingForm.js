@@ -28,12 +28,12 @@ export default function BookingForm({ whiteLabels = false, hideService = false, 
 
   if (status === 'sent') {
     return (
-      <div className="bg-teal-50 border border-teal-200 rounded-2xl p-8 text-center">
+      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center">
         <div className="text-4xl mb-3">✅</div>
-        <h3 className="font-display text-xl font-bold text-teal-800 mb-2">Appointment Request Received!</h3>
-        <p className="text-sm text-teal-700">Our front desk will be in touch shortly to confirm your appointment time.</p>
+        <h3 className="font-display text-xl font-bold text-blue-800 mb-2">Appointment Request Received!</h3>
+        <p className="text-sm text-blue-700">Our front desk will be in touch shortly to confirm your appointment time.</p>
         <button onClick={() => { setStatus(null); setForm({ name:'', contact:'', service: defaultService, message:'' }) }}
-          className="mt-4 text-sm text-teal-600 underline">Submit another request</button>
+          className="mt-4 text-sm text-blue-600 underline">Submit another request</button>
       </div>
     )
   }

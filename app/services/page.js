@@ -13,7 +13,7 @@ const clinics = [
     description: 'Comprehensive mental health support and specialized psychiatric care located right within the medical centre. We take an integrated approach that connects your mental health plan with your overall medical history.',
     services: ['Psychiatric Assessment', 'Psychological Assessment', 'Medication Management', 'Counselling & Therapy', 'TMS & Ketamine Treatment'],
     accent: 'violet',
-    accentColor: '#059669',
+    accentColor: '#2563eb',
   },
   {
     icon: '🩺',
@@ -22,8 +22,8 @@ const clinics = [
     tagline: 'Family Medicine & Preventive Care',
     description: 'Primary care and family medicine for patients of all ages. Our physicians provide continuous, comprehensive care focused on keeping you healthy for the long term.',
     services: ['Family Medicine', 'Annual Physical Exams', 'Disease Management', 'Bloodwork & Lab Referrals', 'Preventive Care', 'Specialist Referrals', "Women's Health"],
-    accent: 'teal',
-    accentColor: '#059669',
+    accent: 'blue',
+    accentColor: '#2563eb',
   },
   {
     icon: '🏥',
@@ -33,7 +33,7 @@ const clinics = [
     description: 'Quick, accessible care without the wait. Our walk-in clinic handles everything from minor illness and injury to prescription renewals, vaccinations, and more.',
     services: ['Illness & Injury Assessment', 'Prescriptions & Renewals', 'Blood Pressure & Vitals', 'STI Testing', 'Sick Notes'],
     accent: 'sky',
-    accentColor: '#059669',
+    accentColor: '#2563eb',
   },
   {
     icon: '💊',
@@ -43,13 +43,13 @@ const clinics = [
     description: 'Our on-site pharmacy makes it easy to fill your prescriptions immediately after your appointment. We offer comprehensive pharmaceutical care and medication management services.',
     services: ['Prescription Dispensing', 'Medication Synchronization', 'Medication Reviews', 'Blister Packaging', 'Over-the-Counter Products'],
     accent: 'emerald',
-    accentColor: '#059669',
+    accentColor: '#2563eb',
   },
 ]
 
 const accentMap = {
   violet: { card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
-  teal:   { card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
+  blue:   { card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
   sky:    { card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
   emerald:{ card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
 }
@@ -180,12 +180,12 @@ function ClinicsSlider() {
         <div className="flex justify-center gap-6 mt-4">
           <button
             onClick={() => setActive(prev => Math.max(0, prev - 1))}
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-30"
+            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-blue-600 transition-colors disabled:opacity-30"
             disabled={active === 0}
           >‹</button>
           <button
             onClick={() => setActive(prev => Math.min(clinics.length - 1, prev + 1))}
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-30"
+            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-blue-600 transition-colors disabled:opacity-30"
             disabled={active === clinics.length - 1}
           >›</button>
         </div>
@@ -200,9 +200,9 @@ export default function ServicesPage() {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-slate-800 to-teal-900 text-white">
+        <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-slate-800 to-blue-900 text-white">
           <div className="max-w-6xl mx-auto text-center">
-            <p className="section-label text-teal-300 animate-fade-up">Under One Roof</p>
+            <p className="section-label text-blue-300 animate-fade-up">Under One Roof</p>
             <h1 className="font-display text-5xl font-bold mb-4 animate-fade-up delay-100">Clinics & Services</h1>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto animate-fade-up delay-200">Everything you need for your health in one building. Explore our clinics below and book directly with the front desk.</p>
           </div>

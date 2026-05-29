@@ -12,9 +12,9 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main>
-        <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-slate-800 to-teal-900 text-white">
+        <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-slate-800 to-blue-900 text-white">
           <div className="max-w-6xl mx-auto text-center">
-            <p className="section-label text-teal-300">Our Story</p>
+            <p className="section-label text-blue-300">Our Story</p>
             <h1 className="font-display text-5xl font-bold mb-4">About Ottawa Street Medical Centre</h1>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto">Windsor's most complete medical facility — designed from the ground up to make healthcare simpler.</p>
           </div>
@@ -29,7 +29,7 @@ export default function AboutPage() {
                 <p className="text-slate-600 leading-relaxed mb-4">Ottawa Street Medical Centre was built around a simple idea: patients shouldn't have to travel across the city to get the care they need. By bringing mental health, physical health, walk-in services, and pharmacy together under one roof, we've created a healthcare environment that's genuinely convenient.</p>
                 <p className="text-slate-600 leading-relaxed">Our clinicians collaborate directly, meaning your care is coordinated — not fragmented. Your mental health team knows your physical health history. Your prescriptions are filled the same day. That's the Ottawa Street difference.</p>
               </div>
-              <div className="bg-teal-50 border border-teal-100 rounded-2xl p-8">
+              <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8">
                 <div className="space-y-5">
                   <div className="flex gap-4">
                     <div className="text-2xl">🏥</div>
@@ -65,7 +65,7 @@ export default function AboutPage() {
                 { stat: '6', label: 'Days per week' },
               ].map(item => (
                 <div key={item.label} className="text-center">
-                  <div className="font-display text-4xl font-bold text-teal-600 mb-1">{item.stat}</div>
+                  <div className="font-display text-4xl font-bold text-blue-600 mb-1">{item.stat}</div>
                   <div className="text-sm text-slate-500">{item.label}</div>
                 </div>
               ))}

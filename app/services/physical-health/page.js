@@ -24,14 +24,14 @@ export const metadata = {
 export default function PhysicalHealthPage() {
   return (
     <ServicePageLayout
-      accentGradient="from-teal-900 to-slate-900"
+      accentGradient="from-blue-900 to-slate-900"
       accentColor="#0d9488"
-      accentLight="text-teal-300"
-      accentBg="bg-teal-500/30"
-      accentBorder="border-teal-500/30"
-      accentCardBorder="border-teal-200"
-      accentDot="bg-teal-500"
-      accentSection="bg-teal-50"
+      accentLight="text-blue-300"
+      accentBg="bg-blue-500/30"
+      accentBorder="border-blue-500/30"
+      accentCardBorder="border-blue-200"
+      accentDot="bg-blue-500"
+      accentSection="bg-blue-50"
       icon="🩺"
       clinic="Primary Care"
       title="Physical Health"

@@ -18,41 +18,41 @@ export default function Home() {
       <Navbar />
       <main>
         {/* Hero — copy left, form right */}
-        <section className="pt-32 pb-16 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #ccfbf1 60%, #d1fae5 100%)' }}>
+        <section className="pt-32 pb-16 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #bfdbfe 60%, #dbeafe 100%)' }}>
           <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: copy */}
             <div>
-              <div className="inline-flex items-center gap-2 bg-green-900/15 border border-green-900/25 rounded-full px-4 py-1.5 text-green-900 text-xs font-semibold mb-6 tracking-wide uppercase animate-fade-up">
+              <div className="inline-flex items-center gap-2 bg-blue-900/15 border border-blue-900/25 rounded-full px-4 py-1.5 text-blue-900 text-xs font-semibold mb-6 tracking-wide uppercase animate-fade-up">
                 Windsor's Full-Suite Medical Facility
               </div>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5 animate-fade-up delay-100 text-green-950">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5 animate-fade-up delay-100 text-blue-950">
                 Ottawa Street<br />
-                <span className="text-teal-600">Medical Centre</span>
+                <span className="text-blue-600">Medical Centre</span>
               </h1>
-              <p className="text-green-900/80 text-lg leading-relaxed mb-6 max-w-lg animate-fade-up delay-200">
+              <p className="text-blue-900/80 text-lg leading-relaxed mb-6 max-w-lg animate-fade-up delay-200">
                 Mental health, physical health, walk-in services and pharmacy all under one roof.
               </p>
-              <div className="flex flex-wrap gap-6 text-sm text-green-900/70 animate-fade-up delay-300 mb-8">
-                <span className="flex items-center gap-1.5"><span>📞</span> <a href="tel:+15199151394" className="hover:text-green-900 transition-colors">+1-519-915-1394</a></span>
+              <div className="flex flex-wrap gap-6 text-sm text-blue-900/70 animate-fade-up delay-300 mb-8">
+                <span className="flex items-center gap-1.5"><span>📞</span> <a href="tel:+15199151394" className="hover:text-blue-900 transition-colors">+1-519-915-1394</a></span>
                 <span className="flex items-center gap-1.5"><span>🕐</span> Mon–Sat 8am–5pm</span>
                 <a
                   href="https://www.google.com/maps/dir/?api=1&destination=1535+Ottawa+Street+Windsor+ON"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 hover:text-green-900 transition-colors"
+                  className="flex items-center gap-1.5 hover:text-blue-900 transition-colors"
                 >
                   <span>📍</span> 1535 Ottawa Street
                 </a>
               </div>
               <div className="flex flex-wrap gap-3 animate-fade-up delay-400">
-                <Link href="/services" className="btn-outline border-green-900/40 text-green-900 hover:bg-green-900/10 hover:text-green-900">Our Clinics & Services</Link>
+                <Link href="/services" className="btn-outline border-blue-900/40 text-blue-900 hover:bg-blue-900/10 hover:text-blue-900">Our Clinics & Services</Link>
               </div>
             </div>
 
             {/* Right: booking form */}
-            <div className="bg-white/70 backdrop-blur-sm border border-teal-100 rounded-2xl p-6 md:p-8 animate-slide-right delay-200 shadow-sm">
-              <h2 className="font-display text-xl font-bold text-green-950 mb-1">Request an Appointment</h2>
-              <p className="text-green-900/70 text-xs mb-5">Our front desk will contact you to confirm a time. Walk-in Clinic and Pharmacy visits don't require a booking.</p>
+            <div className="bg-white/70 backdrop-blur-sm border border-blue-100 rounded-2xl p-6 md:p-8 animate-slide-right delay-200 shadow-sm">
+              <h2 className="font-display text-xl font-bold text-blue-950 mb-1">Request an Appointment</h2>
+              <p className="text-blue-900/70 text-xs mb-5">Our front desk will contact you to confirm a time. Walk-in Clinic and Pharmacy visits don't require a booking.</p>
               <BookingForm whiteLabels />
             </div>
           </div>
@@ -79,42 +79,42 @@ export default function Home() {
               <p className="text-slate-500 leading-relaxed mb-8">Whether you have a question about our services, need directions, or want to reach a specific clinic — we're here.</p>
               <div className="space-y-5">
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📞</div>
+                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📞</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm mb-0.5">Phone</h3>
-                    <a href="tel:+15199151394" className="text-teal-600 text-sm hover:underline">+1-519-915-1394</a>
+                    <a href="tel:+15199151394" className="text-blue-600 text-sm hover:underline">+1-519-915-1394</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">✉️</div>
+                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">✉️</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm mb-0.5">Email</h3>
-                    <a href="mailto:info@ottawastreetmedicalcentre.ca" className="text-teal-600 text-sm hover:underline">info@ottawastreetmedicalcentre.ca</a>
+                    <a href="mailto:info@ottawastreetmedicalcentre.ca" className="text-blue-600 text-sm hover:underline">info@ottawastreetmedicalcentre.ca</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📍</div>
+                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📍</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm mb-0.5">Address</h3>
                     <a
                       href="https://www.google.com/maps/dir/?api=1&destination=1535+Ottawa+Street+Windsor+ON"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-teal-600 text-sm hover:underline"
+                      className="text-blue-600 text-sm hover:underline"
                     >
                       1535 Ottawa Street, Windsor, ON
                     </a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">🕐</div>
+                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">🕐</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm mb-0.5">Hours</h3>
                     <p className="text-slate-500 text-sm">Monday – Saturday: 8:00am – 5:00pm</p>
                   </div>
                 </div>
               </div>
-              <div className="mt-8 bg-teal-50 border border-teal-100 rounded-xl p-4 text-sm text-teal-800">
+              <div className="mt-8 bg-blue-50 border border-blue-100 rounded-xl p-4 text-sm text-blue-800">
                 <strong>Walk-In Clinic and Pharmacy:</strong> No appointment needed — just come in during operating hours.
               </div>
             </div>
@@ -128,11 +128,11 @@ export default function Home() {
         </section>
 
         {/* CTA Banner */}
-        <section className="py-16 px-4 bg-teal-700 text-white text-center">
+        <section className="py-16 px-4 bg-blue-700 text-white text-center">
           <h2 className="font-display text-3xl font-bold mb-3 animate-fade-up">Ready to Get the Care You Need?</h2>
-          <p className="text-teal-100 mb-8 max-w-md mx-auto animate-fade-up delay-100">Windsor's most complete medical facility is here for you — book online or walk in today.</p>
+          <p className="text-blue-100 mb-8 max-w-md mx-auto animate-fade-up delay-100">Windsor's most complete medical facility is here for you — book online or walk in today.</p>
           <div className="flex flex-wrap justify-center gap-4 animate-fade-up delay-200">
-            <Link href="/contact#booking" className="btn-primary bg-white text-teal-800 hover:bg-teal-50">Book an Appointment</Link>
+            <Link href="/contact#booking" className="btn-primary bg-white text-blue-800 hover:bg-blue-50">Book an Appointment</Link>
             <Link href="/services" className="btn-outline border-white text-white hover:bg-white/20 hover:text-white">Explore Services</Link>
           </div>
         </section>

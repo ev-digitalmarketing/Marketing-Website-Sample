@@ -19,7 +19,7 @@ export default function TestimonialsSlider({ testimonials }) {
       {/* Card */}
       <div className="card p-8 min-h-48 relative overflow-hidden border border-slate-100">
         {/* Big quote mark decoration */}
-        <div className="absolute top-4 right-6 font-display text-8xl text-teal-100 leading-none select-none pointer-events-none">"</div>
+        <div className="absolute top-4 right-6 font-display text-8xl text-blue-100 leading-none select-none pointer-events-none">"</div>
 
         <div className="flex mb-4">
           {'⭐'.repeat(t.rating)}
@@ -33,7 +33,7 @@ export default function TestimonialsSlider({ testimonials }) {
         </p>
 
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 font-bold text-sm">
+          <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-sm">
             {t.name.charAt(0)}
           </div>
           <p className="font-semibold text-slate-800 text-sm">{t.name}</p>
@@ -44,7 +44,7 @@ export default function TestimonialsSlider({ testimonials }) {
       <div className="flex items-center gap-4 mt-5">
         <button
           onClick={() => setActive(i => (i - 1 + testimonials.length) % testimonials.length)}
-          className="w-9 h-9 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 hover:border-teal-300 transition-all"
+          className="w-9 h-9 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-blue-600 hover:border-blue-300 transition-all"
         >‹</button>
 
         <div className="flex gap-2 flex-1">
@@ -63,7 +63,7 @@ export default function TestimonialsSlider({ testimonials }) {
 
         <button
           onClick={() => setActive(i => (i + 1) % testimonials.length)}
-          className="w-9 h-9 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 hover:border-teal-300 transition-all"
+          className="w-9 h-9 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-blue-600 hover:border-blue-300 transition-all"
         >›</button>
       </div>
     </div>

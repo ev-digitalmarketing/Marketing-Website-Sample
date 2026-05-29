@@ -76,7 +76,7 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
         <button
           onClick={() => go('left')}
           disabled={current === 0 || sliding}
-          className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-30 text-lg"
+          className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-blue-600 transition-colors disabled:opacity-30 text-lg"
         >‹</button>
 
         <div className="flex gap-2">
@@ -96,7 +96,7 @@ function ServiceCarousel({ services, accentColor, accentCardBorder, accentDot })
         <button
           onClick={() => go('right')}
           disabled={current === total - 1 || sliding}
-          className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-30 text-lg"
+          className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-blue-600 transition-colors disabled:opacity-30 text-lg"
         >›</button>
       </div>
     </div>

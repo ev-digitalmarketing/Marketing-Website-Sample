@@ -29,13 +29,13 @@ h1, h2, h3 {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-3 rounded-lg font-semibold text-sm tracking-wide hover:bg-teal-700 transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-sm tracking-wide hover:bg-blue-700 transition-all duration-200 shadow-sm hover:shadow-md;
   }
   .btn-outline {
-    @apply inline-flex items-center gap-2 border-2 border-teal-600 text-teal-600 px-6 py-3 rounded-lg font-semibold text-sm tracking-wide hover:bg-teal-600 hover:text-white transition-all duration-200;
+    @apply inline-flex items-center gap-2 border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold text-sm tracking-wide hover:bg-blue-600 hover:text-white transition-all duration-200;
   }
   .section-label {
-    @apply text-teal-600 text-xs font-bold tracking-widest uppercase mb-3;
+    @apply text-blue-600 text-xs font-bold tracking-widest uppercase mb-3;
   }
   .card {
     @apply bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-200;

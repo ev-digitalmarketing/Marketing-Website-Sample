@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 shadow-sm">
       {/* Top bar — location + phone right-aligned */}
-      <div className="bg-teal-700 text-white text-sm py-2.5 px-4">
+      <div className="bg-blue-700 text-white text-sm py-2.5 px-4">
         <div className="max-w-6xl mx-auto flex justify-end items-center gap-0">
           <a
             href="https://www.google.com/maps/dir/?api=1&destination=1535+Ottawa+Street+Windsor+ON"
@@ -62,7 +62,7 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/" className="text-sm font-medium text-slate-700 hover:text-teal-600 transition-colors">Home</Link>
+          <Link href="/" className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">Home</Link>
 
           {/* Services dropdown */}
           <div
@@ -70,7 +70,7 @@ export default function Navbar() {
             onMouseEnter={openDropdown}
             onMouseLeave={closeDropdown}
           >
-            <Link href="/services" className="text-sm font-medium text-slate-700 hover:text-teal-600 transition-colors flex items-center gap-1">
+            <Link href="/services" className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors flex items-center gap-1">
               Clinics & Services
               <svg className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </Link>
@@ -83,21 +83,21 @@ export default function Navbar() {
                 <div className="bg-white rounded-xl shadow-xl border border-slate-100 py-2">
                   <div className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider">Our Clinics</div>
                   {services.map(s => (
-                    <Link key={s.href} href={s.href} className="flex flex-col px-4 py-3 hover:bg-teal-50 transition-colors group">
-                      <span className="text-sm font-semibold text-slate-800 group-hover:text-teal-700">{s.name}</span>
+                    <Link key={s.href} href={s.href} className="flex flex-col px-4 py-3 hover:bg-blue-50 transition-colors group">
+                      <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-700">{s.name}</span>
                       <span className="text-xs text-slate-500">{s.desc}</span>
                     </Link>
                   ))}
                   <div className="border-t border-slate-100 mt-2 pt-2 px-4 pb-1">
-                    <Link href="/services" className="text-xs font-semibold text-teal-600 hover:underline">View all services →</Link>
+                    <Link href="/services" className="text-xs font-semibold text-blue-600 hover:underline">View all services →</Link>
                   </div>
                 </div>
               </div>
             )}
           </div>
 
-          <Link href="/about" className="text-sm font-medium text-slate-700 hover:text-teal-600 transition-colors">About</Link>
-          <Link href="/contact" className="text-sm font-medium text-slate-700 hover:text-teal-600 transition-colors">Contact</Link>
+          <Link href="/about" className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">About</Link>
+          <Link href="/contact" className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">Contact</Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">

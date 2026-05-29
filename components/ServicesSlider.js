@@ -7,36 +7,36 @@ const services = [
     icon: '🧠',
     title: 'Mental Health',
     href: '/services/mental-health',
-    color: 'bg-teal-50 border-teal-100',
-    iconBg: 'bg-teal-100 text-teal-700',
-    accentColor: '#0d9488',
+    color: 'bg-blue-50 border-blue-100',
+    iconBg: 'bg-blue-100 text-blue-700',
+    accentColor: '#2563eb',
     items: ['Psychiatric Assessment', 'Counselling & Therapy', 'TMS & Ketamine Treatment', 'Cognitive Behaviour Therapy', 'Medication Management'],
   },
   {
     icon: '🩺',
     title: 'Physical Health',
     href: '/services/physical-health',
-    color: 'bg-teal-50 border-teal-100',
-    iconBg: 'bg-teal-100 text-teal-700',
-    accentColor: '#0d9488',
+    color: 'bg-blue-50 border-blue-100',
+    iconBg: 'bg-blue-100 text-blue-700',
+    accentColor: '#2563eb',
     items: ['Family Medicine', 'Annual Physical Exams', 'Disease Management', 'Preventive Care', "Women's Health"],
   },
   {
     icon: '🏥',
     title: 'Walk-In Clinic',
     href: '/services/walk-in-clinic',
-    color: 'bg-teal-50 border-teal-100',
-    iconBg: 'bg-teal-100 text-teal-700',
-    accentColor: '#0d9488',
+    color: 'bg-blue-50 border-blue-100',
+    iconBg: 'bg-blue-100 text-blue-700',
+    accentColor: '#2563eb',
     items: ['No Appointment Needed', 'Illness & Injury Care', 'Prescriptions & Renewals', 'STI Testing', 'Sick Notes'],
   },
   {
     icon: '💊',
     title: 'Pharmacy',
     href: '/services/pharmacy',
-    color: 'bg-teal-50 border-teal-100',
-    iconBg: 'bg-teal-100 text-teal-700',
-    accentColor: '#0d9488',
+    color: 'bg-blue-50 border-blue-100',
+    iconBg: 'bg-blue-100 text-blue-700',
+    accentColor: '#2563eb',
     items: ['Prescription Dispensing', 'Medication Reviews', 'Blister Packaging', 'Compounding Services', 'Immunizations & Vaccines'],
   },
 ]
@@ -73,16 +73,16 @@ export default function ServicesSlider() {
         {services.map(s => (
           <Link key={s.href} href={s.href} className={`card p-6 border ${s.color} hover:scale-[1.02] transition-transform duration-200 group animate-fade-up`}>
             <div className={`w-12 h-12 rounded-xl ${s.iconBg} flex items-center justify-center text-2xl mb-4`}>{s.icon}</div>
-            <h3 className="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-teal-700 transition-colors">{s.title}</h3>
+            <h3 className="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">{s.title}</h3>
             <ul className="space-y-1.5">
               {s.items.map(item => (
                 <li key={item} className="text-xs text-slate-600 flex items-center gap-1.5">
-                  <span className="w-1 h-1 rounded-full bg-teal-500 flex-shrink-0"></span>
+                  <span className="w-1 h-1 rounded-full bg-blue-500 flex-shrink-0"></span>
                   {item}
                 </li>
               ))}
             </ul>
-            <div className="mt-4 text-xs font-semibold text-teal-600 group-hover:translate-x-1 transition-transform">Learn more →</div>
+            <div className="mt-4 text-xs font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Learn more →</div>
           </Link>
         ))}
       </div>
@@ -149,12 +149,12 @@ export default function ServicesSlider() {
         <div className="flex justify-center gap-6 mt-4">
           <button
             onClick={() => setActive(prev => Math.max(0, prev - 1))}
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-30"
+            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-blue-600 transition-colors disabled:opacity-30"
             disabled={active === 0}
           >‹</button>
           <button
             onClick={() => setActive(prev => Math.min(services.length - 1, prev + 1))}
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 transition-colors disabled:opacity-30"
+            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-blue-600 transition-colors disabled:opacity-30"
             disabled={active === services.length - 1}
           >›</button>
         </div>

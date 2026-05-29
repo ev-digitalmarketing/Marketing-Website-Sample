@@ -12,9 +12,9 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main>
-        <section className="pt-36 pb-16 px-4 bg-gradient-to-br from-slate-800 to-teal-900 text-white">
+        <section className="pt-36 pb-16 px-4 bg-gradient-to-br from-slate-800 to-blue-900 text-white">
           <div className="max-w-6xl mx-auto text-center">
-            <p className="section-label text-teal-300">Get in Touch</p>
+            <p className="section-label text-blue-300">Get in Touch</p>
             <h1 className="font-display text-5xl font-bold mb-4">Contact Us</h1>
             <p className="text-slate-300 text-lg max-w-xl mx-auto">Book an appointment, ask a question, or just find out where we are. We're here to help.</p>
           </div>
@@ -30,28 +30,28 @@ export default function ContactPage() {
 
               <div className="space-y-5 mb-10">
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📍</div>
+                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📍</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm">Address</h3>
                     <p className="text-slate-500 text-sm">1535 Ottawa Street, Windsor, ON</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📞</div>
+                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📞</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm">Phone</h3>
-                    <a href="tel:+15199151394" className="text-teal-600 text-sm hover:underline">+1-519-915-1394</a>
+                    <a href="tel:+15199151394" className="text-blue-600 text-sm hover:underline">+1-519-915-1394</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">✉️</div>
+                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">✉️</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm">Email</h3>
-                    <a href="mailto:info@ottawastreetmedicalcentre.ca" className="text-teal-600 text-sm hover:underline">info@ottawastreetmedicalcentre.ca</a>
+                    <a href="mailto:info@ottawastreetmedicalcentre.ca" className="text-blue-600 text-sm hover:underline">info@ottawastreetmedicalcentre.ca</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">🕐</div>
+                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">🕐</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm">Hours</h3>
                     <p className="text-slate-500 text-sm">Monday – Saturday: 8:00am – 5:00pm</p>
