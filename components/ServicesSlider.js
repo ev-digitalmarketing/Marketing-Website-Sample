@@ -7,27 +7,27 @@ const services = [
     icon: '🧠',
     title: 'Mental Health',
     href: '/services/mental-health',
-    color: 'bg-violet-50 border-violet-100',
-    iconBg: 'bg-violet-100 text-violet-700',
-    accentColor: '#7c3aed',
+    color: 'bg-emerald-50 border-emerald-100',
+    iconBg: 'bg-emerald-100',
+    accentColor: '#059669',
     items: ['Psychiatric Assessment', 'Counselling & Therapy', 'TMS & Ketamine Treatment', 'Cognitive Behaviour Therapy', 'Medication Management'],
   },
   {
     icon: '🩺',
     title: 'Physical Health',
     href: '/services/physical-health',
-    color: 'bg-teal-50 border-teal-100',
-    iconBg: 'bg-teal-100 text-teal-700',
-    accentColor: '#0d9488',
+    color: 'bg-emerald-50 border-emerald-100',
+    iconBg: 'bg-emerald-100',
+    accentColor: '#059669',
     items: ['Family Medicine', 'Annual Physical Exams', 'Disease Management', 'Preventive Care', "Women's Health"],
   },
   {
     icon: '🏥',
     title: 'Walk-In Clinic',
     href: '/services/walk-in-clinic',
-    color: 'bg-sky-50 border-sky-100',
-    iconBg: 'bg-sky-100 text-sky-700',
-    accentColor: '#0284c7',
+    color: 'bg-emerald-50 border-emerald-100',
+    iconBg: 'bg-emerald-100',
+    accentColor: '#059669',
     items: ['No Appointment Needed', 'Illness & Injury Care', 'Prescriptions & Renewals', 'STI Testing', 'Sick Notes'],
   },
   {
@@ -35,7 +35,7 @@ const services = [
     title: 'Pharmacy',
     href: '/services/pharmacy',
     color: 'bg-emerald-50 border-emerald-100',
-    iconBg: 'bg-emerald-100 text-emerald-700',
+    iconBg: 'bg-emerald-100',
     accentColor: '#059669',
     items: ['Prescription Dispensing', 'Medication Reviews', 'Blister Packaging', 'Compounding Services', 'Immunizations & Vaccines'],
   },
@@ -72,7 +72,7 @@ export default function ServicesSlider() {
       <div className="hidden md:grid grid-cols-4 gap-5 max-w-6xl mx-auto">
         {services.map(s => (
           <Link key={s.href} href={s.href} className={`card p-6 border ${s.color} hover:scale-[1.02] transition-transform duration-200 group animate-fade-up`}>
-            <div className={`w-12 h-12 rounded-xl ${s.iconBg} flex items-center justify-center text-2xl mb-4`}>{s.icon}</div>
+            <div className={`w-12 h-12 rounded-xl ${s.iconBg} text-emerald-700 flex items-center justify-center text-2xl mb-4`}>{s.icon}</div>
             <h3 className="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-teal-700 transition-colors">{s.title}</h3>
             <ul className="space-y-1.5">
               {s.items.map(item => (
@@ -109,7 +109,7 @@ export default function ServicesSlider() {
               }}
             >
               <div className={`rounded-2xl border-2 p-6 shadow-xl ${s.color}`}>
-                <div className={`w-12 h-12 rounded-xl ${s.iconBg} flex items-center justify-center text-2xl mb-4`}>{s.icon}</div>
+                <div className={`w-12 h-12 rounded-xl ${s.iconBg} text-emerald-700 flex items-center justify-center text-2xl mb-4`}>{s.icon}</div>
                 <h3 className="font-display text-lg font-bold text-slate-900 mb-3">{s.title}</h3>
                 <ul className="space-y-1.5">
                   {s.items.map(item => (

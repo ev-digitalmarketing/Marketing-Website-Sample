@@ -13,7 +13,7 @@ const clinics = [
     description: 'Comprehensive mental health support and specialized psychiatric care located right within the medical centre. We take an integrated approach that connects your mental health plan with your overall medical history.',
     services: ['Psychiatric Assessment', 'Psychological Assessment', 'Medication Management', 'Counselling & Therapy', 'TMS & Ketamine Treatment'],
     accent: 'violet',
-    accentColor: '#7c3aed',
+    accentColor: '#059669',
   },
   {
     icon: '🩺',
@@ -23,7 +23,7 @@ const clinics = [
     description: 'Primary care and family medicine for patients of all ages. Our physicians provide continuous, comprehensive care focused on keeping you healthy for the long term.',
     services: ['Family Medicine', 'Annual Physical Exams', 'Disease Management', 'Bloodwork & Lab Referrals', 'Preventive Care', 'Specialist Referrals', "Women's Health"],
     accent: 'teal',
-    accentColor: '#0d9488',
+    accentColor: '#059669',
   },
   {
     icon: '🏥',
@@ -33,7 +33,7 @@ const clinics = [
     description: 'Quick, accessible care without the wait. Our walk-in clinic handles everything from minor illness and injury to prescription renewals, vaccinations, and more.',
     services: ['Illness & Injury Assessment', 'Prescriptions & Renewals', 'Blood Pressure & Vitals', 'STI Testing', 'Sick Notes'],
     accent: 'sky',
-    accentColor: '#0284c7',
+    accentColor: '#059669',
   },
   {
     icon: '💊',
@@ -48,9 +48,9 @@ const clinics = [
 ]
 
 const accentMap = {
-  violet: { card: 'border-violet-100 hover:border-violet-300', badge: 'bg-violet-100 text-violet-700', btn: 'bg-violet-600 hover:bg-violet-700', dot: 'bg-violet-500', cardBg: 'bg-violet-50 border-violet-100', iconBg: 'bg-violet-100 text-violet-700' },
-  teal:   { card: 'border-teal-100 hover:border-teal-300',   badge: 'bg-teal-100 text-teal-700',   btn: 'bg-teal-600 hover:bg-teal-700',   dot: 'bg-teal-500',   cardBg: 'bg-teal-50 border-teal-100',   iconBg: 'bg-teal-100 text-teal-700' },
-  sky:    { card: 'border-sky-100 hover:border-sky-300',     badge: 'bg-sky-100 text-sky-700',     btn: 'bg-sky-600 hover:bg-sky-700',     dot: 'bg-sky-500',     cardBg: 'bg-sky-50 border-sky-100',     iconBg: 'bg-sky-100 text-sky-700' },
+  violet: { card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
+  teal:   { card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
+  sky:    { card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
   emerald:{ card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
 }
 
