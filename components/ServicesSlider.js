@@ -2,33 +2,41 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-const CARD_GRADIENT = 'linear-gradient(135deg, #f0fdf4 0%, #ccfbf1 60%, #d1fae5 100%)'
-const ICON_GRADIENT = 'linear-gradient(135deg, #bbf7d0 0%, #99f6e4 100%)'
-const ACCENT_COLOR = '#0d9488'
-
 const services = [
   {
     icon: '🧠',
     title: 'Mental Health',
     href: '/services/mental-health',
+    color: 'bg-violet-50 border-violet-100',
+    iconBg: 'bg-violet-100 text-violet-700',
+    accentColor: '#7c3aed',
     items: ['Psychiatric Assessment', 'Counselling & Therapy', 'TMS & Ketamine Treatment', 'Cognitive Behaviour Therapy', 'Medication Management'],
   },
   {
     icon: '🩺',
     title: 'Physical Health',
     href: '/services/physical-health',
+    color: 'bg-teal-50 border-teal-100',
+    iconBg: 'bg-teal-100 text-teal-700',
+    accentColor: '#0d9488',
     items: ['Family Medicine', 'Annual Physical Exams', 'Disease Management', 'Preventive Care', "Women's Health"],
   },
   {
     icon: '🏥',
     title: 'Walk-In Clinic',
     href: '/services/walk-in-clinic',
+    color: 'bg-sky-50 border-sky-100',
+    iconBg: 'bg-sky-100 text-sky-700',
+    accentColor: '#0284c7',
     items: ['No Appointment Needed', 'Illness & Injury Care', 'Prescriptions & Renewals', 'STI Testing', 'Sick Notes'],
   },
   {
     icon: '💊',
     title: 'Pharmacy',
     href: '/services/pharmacy',
+    color: 'bg-emerald-50 border-emerald-100',
+    iconBg: 'bg-emerald-100 text-emerald-700',
+    accentColor: '#059669',
     items: ['Prescription Dispensing', 'Medication Reviews', 'Blister Packaging', 'Compounding Services', 'Immunizations & Vaccines'],
   },
 ]
@@ -63,28 +71,18 @@ export default function ServicesSlider() {
       {/* Desktop: 1x4 horizontal row */}
       <div className="hidden md:grid grid-cols-4 gap-5 max-w-6xl mx-auto">
         {services.map(s => (
-          <Link
-            key={s.href}
-            href={s.href}
-            className="card p-6 border border-teal-100 hover:scale-[1.02] transition-transform duration-200 group animate-fade-up"
-            style={{ background: CARD_GRADIENT }}
-          >
-            <div
-              className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4"
-              style={{ background: ICON_GRADIENT }}
-            >
-              {s.icon}
-            </div>
+          <Link key={s.href} href={s.href} className={`card p-6 border ${s.color} hover:scale-[1.02] transition-transform duration-200 group animate-fade-up`}>
+            <div className={`w-12 h-12 rounded-xl ${s.iconBg} flex items-center justify-center text-2xl mb-4`}>{s.icon}</div>
             <h3 className="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-teal-700 transition-colors">{s.title}</h3>
             <ul className="space-y-1.5">
               {s.items.map(item => (
                 <li key={item} className="text-xs text-slate-600 flex items-center gap-1.5">
-                  <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: ACCENT_COLOR }}></span>
+                  <span className="w-1 h-1 rounded-full bg-teal-500 flex-shrink-0"></span>
                   {item}
                 </li>
               ))}
             </ul>
-            <div className="mt-4 text-xs font-semibold group-hover:translate-x-1 transition-transform" style={{ color: ACCENT_COLOR }}>Learn more →</div>
+            <div className="mt-4 text-xs font-semibold text-teal-600 group-hover:translate-x-1 transition-transform">Learn more →</div>
           </Link>
         ))}
       </div>
@@ -106,21 +104,13 @@ export default function ServicesSlider() {
                 transformStyle: 'preserve-3d',
               }}
             >
-              <div
-                className="rounded-2xl border-2 border-teal-100 p-6 shadow-xl"
-                style={{ background: CARD_GRADIENT }}
-              >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4"
-                  style={{ background: ICON_GRADIENT }}
-                >
-                  {s.icon}
-                </div>
+              <div className={`rounded-2xl border-2 p-6 shadow-xl ${s.color}`}>
+                <div className={`w-12 h-12 rounded-xl ${s.iconBg} flex items-center justify-center text-2xl mb-4`}>{s.icon}</div>
                 <h3 className="font-display text-lg font-bold text-slate-900 mb-3">{s.title}</h3>
                 <ul className="space-y-1.5">
                   {s.items.map(item => (
                     <li key={item} className="text-xs text-slate-600 flex items-center gap-1.5">
-                      <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: ACCENT_COLOR }}></span>
+                      <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: s.accentColor }}></span>
                       {item}
                     </li>
                   ))}
@@ -129,7 +119,7 @@ export default function ServicesSlider() {
                   <Link
                     href={s.href}
                     className="mt-4 inline-block text-xs font-semibold"
-                    style={{ color: ACCENT_COLOR }}
+                    style={{ color: s.accentColor }}
                     onClick={e => e.stopPropagation()}
                   >
                     Learn more →
@@ -142,13 +132,13 @@ export default function ServicesSlider() {
 
         {/* Dot navigation */}
         <div className="flex justify-center gap-3 mt-4">
-          {services.map((_, i) => (
+          {services.map((s, i) => (
             <button
               key={i}
               onClick={() => setActive(i)}
               className="w-2.5 h-2.5 rounded-full transition-all duration-300"
               style={{
-                backgroundColor: i === active ? ACCENT_COLOR : '#cbd5e1',
+                backgroundColor: i === active ? s.accentColor : '#cbd5e1',
                 transform: i === active ? 'scale(1.3)' : 'scale(1)',
               }}
             />

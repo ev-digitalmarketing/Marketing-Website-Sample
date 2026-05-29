@@ -27,7 +27,7 @@ export default function Home() {
               </div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5 animate-fade-up delay-100 text-green-950">
                 Ottawa Street<br />
-                <span className="text-green-900">Medical Centre</span>
+                <span className="text-teal-600">Medical Centre</span>
               </h1>
               <p className="text-green-900/80 text-lg leading-relaxed mb-6 max-w-lg animate-fade-up delay-200">
                 Mental health, physical health, walk-in services and pharmacy all under one roof.
