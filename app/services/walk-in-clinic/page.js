@@ -23,7 +23,7 @@ export default function WalkInPage() {
   return (
     <ServicePageLayout
       accentGradient="from-blue-900 to-slate-900"
-      accentColor="#0284c7"
+      accentColor="#2563eb"
       accentLight="text-blue-300"
       accentBg="bg-blue-500/30"
       accentBorder="border-blue-500/30"
