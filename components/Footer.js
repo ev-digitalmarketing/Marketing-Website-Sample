@@ -15,7 +15,7 @@ export default function Footer() {
               height={52}
               className="object-contain"
             />
-            <span className="text-white font-semibold text-base leading-tight">Ottawa Street<br />Medical</span>
+            <span className="text-white font-semibold text-base leading-tight">Ottawa Street<br />Medical Centre</span>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">Windsor's complete medical facility — designed to make healthcare more accessible and less complicated.</p>
         </div>
