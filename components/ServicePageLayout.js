@@ -188,11 +188,11 @@ export default function ServicePageLayout({
       <Navbar />
       <main>
         {/* ── HERO ── */}
-        <section className="py-24 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #bfdbfe 60%, #dbeafe 100%)' }}>
+        <section className="pt-32 pb-0 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #bfdbfe 60%, #dbeafe 100%)' }}>
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `radial-gradient(circle at 10% 80%, #3b82f6 0%, transparent 50%)` }} />
           <div className="max-w-6xl mx-auto relative z-10">
             <Link href="/services" className="text-blue-700 text-xs font-semibold hover:underline mb-6 inline-block animate-fade-up">← All Clinics & Services</Link>
-            <div className="animate-fade-up" style={{ animationDelay: '0.1s' }}>
+            <div className="pb-12 animate-fade-up" style={{ animationDelay: '0.1s' }}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-14 h-14 bg-blue-600/15 rounded-2xl flex items-center justify-center text-3xl">{icon}</div>
                 <div>
@@ -213,6 +213,7 @@ export default function ServicePageLayout({
               </div>
             </div>
           </div>
+          <div className="absolute bottom-0 left-0 right-0 h-8 bg-slate-50" style={{ borderRadius: '100% 100% 0 0 / 100% 100% 0 0', transform: 'scaleX(1.5)' }} />
         </section>
 
         {/* ── SERVICES (+ optional FORM) ── */}

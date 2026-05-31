@@ -12,8 +12,8 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main>
-        <section className="py-24 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #bfdbfe 60%, #dbeafe 100%)' }}>
-          <div className="max-w-6xl mx-auto text-center">
+        <section className="px-4 relative overflow-hidden flex items-center" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #bfdbfe 60%, #dbeafe 100%)', minHeight: '280px', paddingTop: '140px', paddingBottom: '64px' }}>
+          <div className="max-w-6xl mx-auto w-full text-center">
             <p className="section-label animate-fade-up">Our Story</p>
             <h1 className="font-display text-5xl font-bold mb-4 text-blue-950 animate-fade-up delay-100">About Ottawa Street Medical Centre</h1>
             <p className="text-blue-900/75 text-lg max-w-2xl mx-auto animate-fade-up delay-200">Windsor's most complete medical facility — designed from the ground up to make healthcare simpler.</p>

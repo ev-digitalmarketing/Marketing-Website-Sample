@@ -200,8 +200,8 @@ export default function ServicesPage() {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="py-24 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #bfdbfe 60%, #dbeafe 100%)' }}>
-          <div className="max-w-6xl mx-auto text-center">
+        <section className="px-4 relative overflow-hidden flex items-center" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #bfdbfe 60%, #dbeafe 100%)', minHeight: '280px', paddingTop: '140px', paddingBottom: '64px' }}>
+          <div className="max-w-6xl mx-auto w-full text-center">
             <p className="section-label animate-fade-up">Under One Roof</p>
             <h1 className="font-display text-5xl font-bold mb-4 text-blue-950 animate-fade-up delay-100">Clinics & Services</h1>
             <p className="text-blue-900/75 text-lg max-w-2xl mx-auto animate-fade-up delay-200">Everything you need for your health in one building. Explore our clinics below and book directly with the front desk.</p>
