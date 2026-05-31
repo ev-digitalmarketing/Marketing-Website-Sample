@@ -22,14 +22,14 @@ export const metadata = {
 export default function PharmacyPage() {
   return (
     <ServicePageLayout
-      accentGradient="from-emerald-900 to-slate-900"
+      accentGradient="from-blue-900 to-slate-900"
       accentColor="#059669"
-      accentLight="text-emerald-300"
-      accentBg="bg-emerald-500/30"
-      accentBorder="border-emerald-500/30"
-      accentCardBorder="border-emerald-200"
-      accentDot="bg-emerald-500"
-      accentSection="bg-emerald-50"
+      accentLight="text-blue-300"
+      accentBg="bg-blue-500/30"
+      accentBorder="border-blue-500/30"
+      accentCardBorder="border-blue-200"
+      accentDot="bg-blue-500"
+      accentSection="bg-blue-50"
       icon="💊"
       clinic="On-Site"
       title="Ottawa Street Pharmacy"

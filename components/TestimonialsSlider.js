@@ -54,7 +54,7 @@ export default function TestimonialsSlider({ testimonials }) {
               onClick={() => setActive(i)}
               className="h-1.5 rounded-full transition-all duration-300"
               style={{
-                backgroundColor: i === active ? '#0d9488' : '#e2e8f0',
+                backgroundColor: i === active ? '#2563eb' : '#e2e8f0',
                 width: i === active ? '2rem' : '0.75rem',
               }}
             />

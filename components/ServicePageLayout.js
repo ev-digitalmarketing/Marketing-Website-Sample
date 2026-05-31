@@ -188,32 +188,31 @@ export default function ServicePageLayout({
       <Navbar />
       <main>
         {/* ── HERO ── */}
-        <section className={`pt-32 pb-0 px-4 bg-gradient-to-br ${accentGradient} text-white relative overflow-hidden`}>
-          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `radial-gradient(circle at 10% 80%, ${accentColor} 0%, transparent 50%)` }} />
+        <section className="py-24 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #bfdbfe 60%, #dbeafe 100%)' }}>
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `radial-gradient(circle at 10% 80%, #3b82f6 0%, transparent 50%)` }} />
           <div className="max-w-6xl mx-auto relative z-10">
-            <Link href="/services" className={`${accentLight} text-xs font-semibold hover:underline mb-6 inline-block animate-fade-up`}>← All Clinics & Services</Link>
-            <div className="pb-12 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+            <Link href="/services" className="text-blue-700 text-xs font-semibold hover:underline mb-6 inline-block animate-fade-up">← All Clinics & Services</Link>
+            <div className="animate-fade-up" style={{ animationDelay: '0.1s' }}>
               <div className="flex items-center gap-4 mb-4">
-                <div className={`w-14 h-14 ${accentBg} rounded-2xl flex items-center justify-center text-3xl`}>{icon}</div>
+                <div className="w-14 h-14 bg-blue-600/15 rounded-2xl flex items-center justify-center text-3xl">{icon}</div>
                 <div>
-                  <p className={`${accentLight} text-xs font-bold tracking-widest uppercase`}>{clinic}</p>
-                  <h1 className="font-display text-4xl md:text-5xl font-bold">{title}</h1>
+                  <p className="text-blue-700 text-xs font-bold tracking-widest uppercase">{clinic}</p>
+                  <h1 className="font-display text-4xl md:text-5xl font-bold text-blue-950">{title}</h1>
                 </div>
               </div>
-              <p className="text-slate-300 text-lg max-w-xl leading-relaxed mb-6">{subtitle}</p>
+              <p className="text-blue-900/75 text-lg max-w-xl leading-relaxed mb-6">{subtitle}</p>
               <div className="flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-                <a href={`tel:${phone.replace(/[^+\d]/g, '')}`} className="flex items-center gap-2.5 bg-white/10 border border-white/20 backdrop-blur-sm rounded-xl px-4 py-3 text-white text-sm font-medium hover:bg-white/20 transition-all">
+                <a href={`tel:${phone.replace(/[^+\d]/g, '')}`} className="flex items-center gap-2.5 bg-blue-900/10 border border-blue-900/20 rounded-xl px-4 py-3 text-blue-950 text-sm font-medium hover:bg-blue-900/15 transition-all">
                   <span className="text-lg">📞</span>
                   <div><div className="text-xs opacity-60 mb-0.5">Phone</div><div>{phone}</div></div>
                 </a>
-                <a href={`mailto:${email}`} className="flex items-center gap-2.5 bg-white/10 border border-white/20 backdrop-blur-sm rounded-xl px-4 py-3 text-white text-sm font-medium hover:bg-white/20 transition-all">
+                <a href={`mailto:${email}`} className="flex items-center gap-2.5 bg-blue-900/10 border border-blue-900/20 rounded-xl px-4 py-3 text-blue-950 text-sm font-medium hover:bg-blue-900/15 transition-all">
                   <span className="text-lg">✉️</span>
                   <div><div className="text-xs opacity-60 mb-0.5">Email</div><div>{email}</div></div>
                 </a>
               </div>
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-8 bg-slate-50" style={{ borderRadius: '100% 100% 0 0 / 100% 100% 0 0', transform: 'scaleX(1.5)' }} />
         </section>
 
         {/* ── SERVICES (+ optional FORM) ── */}

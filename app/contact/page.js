@@ -12,11 +12,11 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main>
-        <section className="pt-36 pb-16 px-4 bg-gradient-to-br from-slate-800 to-blue-900 text-white">
+        <section className="py-24 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #bfdbfe 60%, #dbeafe 100%)' }}>
           <div className="max-w-6xl mx-auto text-center">
-            <p className="section-label text-blue-300">Get in Touch</p>
-            <h1 className="font-display text-5xl font-bold mb-4">Contact Us</h1>
-            <p className="text-slate-300 text-lg max-w-xl mx-auto">Book an appointment, ask a question, or just find out where we are. We're here to help.</p>
+            <p className="section-label animate-fade-up">Get in Touch</p>
+            <h1 className="font-display text-5xl font-bold mb-4 text-blue-950 animate-fade-up delay-100">Contact Us</h1>
+            <p className="text-blue-900/75 text-lg max-w-xl mx-auto animate-fade-up delay-200">Book an appointment, ask a question, or just find out where we are. We're here to help.</p>
           </div>
         </section>
 

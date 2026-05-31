@@ -22,14 +22,14 @@ export const metadata = {
 export default function MentalHealthPage() {
   return (
     <ServicePageLayout
-      accentGradient="from-violet-900 to-slate-900"
+      accentGradient="from-blue-900 to-slate-900"
       accentColor="#7c3aed"
-      accentLight="text-violet-300"
-      accentBg="bg-violet-500/30"
-      accentBorder="border-violet-500/30"
-      accentCardBorder="border-violet-200"
-      accentDot="bg-violet-500"
-      accentSection="bg-violet-50"
+      accentLight="text-blue-300"
+      accentBg="bg-blue-500/30"
+      accentBorder="border-blue-500/30"
+      accentCardBorder="border-blue-200"
+      accentDot="bg-blue-500"
+      accentSection="bg-blue-50"
       icon="🧠"
       clinic="Dr. Aleem Khan's Office"
       title="Mental Health"

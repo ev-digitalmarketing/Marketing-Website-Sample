@@ -22,14 +22,14 @@ export const metadata = {
 export default function WalkInPage() {
   return (
     <ServicePageLayout
-      accentGradient="from-sky-900 to-slate-900"
+      accentGradient="from-blue-900 to-slate-900"
       accentColor="#0284c7"
-      accentLight="text-sky-300"
-      accentBg="bg-sky-500/30"
-      accentBorder="border-sky-500/30"
-      accentCardBorder="border-sky-200"
-      accentDot="bg-sky-500"
-      accentSection="bg-sky-50"
+      accentLight="text-blue-300"
+      accentBg="bg-blue-500/30"
+      accentBorder="border-blue-500/30"
+      accentCardBorder="border-blue-200"
+      accentDot="bg-blue-500"
+      accentSection="bg-blue-50"
       icon="🏥"
       clinic="No Appointment Needed"
       title="Walk-In Clinic"

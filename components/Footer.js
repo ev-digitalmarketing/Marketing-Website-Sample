@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-blue-950 text-slate-300">
       <div className="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand */}
         <div className="md:col-span-1">
@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-slate-800">
+      <div className="border-t border-blue-900">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
           <p>© 2026 Ottawa Street Medical Centre | Website by <a href="https://elevateviral.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">EV Digital Marketing</a></p>
         </div>

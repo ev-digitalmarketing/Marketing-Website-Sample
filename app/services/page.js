@@ -48,10 +48,10 @@ const clinics = [
 ]
 
 const accentMap = {
-  violet: { card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
-  blue:   { card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
-  sky:    { card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
-  emerald:{ card: 'border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-100 text-emerald-700', btn: 'bg-emerald-600 hover:bg-emerald-700', dot: 'bg-emerald-500', cardBg: 'bg-emerald-50 border-emerald-100', iconBg: 'bg-emerald-100 text-emerald-700' },
+  violet: { card: 'border-blue-100 hover:border-blue-300', badge: 'bg-blue-100 text-blue-700', btn: 'bg-blue-600 hover:bg-blue-700', dot: 'bg-blue-500', cardBg: 'bg-blue-50 border-blue-100', iconBg: 'bg-blue-100 text-blue-700' },
+  blue:   { card: 'border-blue-100 hover:border-blue-300', badge: 'bg-blue-100 text-blue-700', btn: 'bg-blue-600 hover:bg-blue-700', dot: 'bg-blue-500', cardBg: 'bg-blue-50 border-blue-100', iconBg: 'bg-blue-100 text-blue-700' },
+  sky:    { card: 'border-blue-100 hover:border-blue-300', badge: 'bg-blue-100 text-blue-700', btn: 'bg-blue-600 hover:bg-blue-700', dot: 'bg-blue-500', cardBg: 'bg-blue-50 border-blue-100', iconBg: 'bg-blue-100 text-blue-700' },
+  emerald:{ card: 'border-blue-100 hover:border-blue-300', badge: 'bg-blue-100 text-blue-700', btn: 'bg-blue-600 hover:bg-blue-700', dot: 'bg-blue-500', cardBg: 'bg-blue-50 border-blue-100', iconBg: 'bg-blue-100 text-blue-700' },
 }
 
 function ClinicsSlider() {
@@ -200,11 +200,11 @@ export default function ServicesPage() {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-slate-800 to-blue-900 text-white">
+        <section className="py-24 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #bfdbfe 60%, #dbeafe 100%)' }}>
           <div className="max-w-6xl mx-auto text-center">
-            <p className="section-label text-blue-300 animate-fade-up">Under One Roof</p>
-            <h1 className="font-display text-5xl font-bold mb-4 animate-fade-up delay-100">Clinics & Services</h1>
-            <p className="text-slate-300 text-lg max-w-2xl mx-auto animate-fade-up delay-200">Everything you need for your health in one building. Explore our clinics below and book directly with the front desk.</p>
+            <p className="section-label animate-fade-up">Under One Roof</p>
+            <h1 className="font-display text-5xl font-bold mb-4 text-blue-950 animate-fade-up delay-100">Clinics & Services</h1>
+            <p className="text-blue-900/75 text-lg max-w-2xl mx-auto animate-fade-up delay-200">Everything you need for your health in one building. Explore our clinics below and book directly with the front desk.</p>
           </div>
         </section>
 

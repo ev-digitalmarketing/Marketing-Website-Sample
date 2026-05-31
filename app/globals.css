@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --teal-primary: #0d9488;
-  --teal-dark: #0f766e;
-  --teal-light: #ccfbf1;
+  --blue-primary: #2563eb;
+  --blue-dark: #1d4ed8;
+  --blue-light: #dbeafe;
   --slate-dark: #0f172a;
   --slate-mid: #334155;
   --off-white: #f8fafc;
@@ -41,13 +41,13 @@ h1, h2, h3 {
     @apply bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-200;
   }
   .form-input {
-    @apply w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all;
+    @apply w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all;
   }
   .form-label {
     @apply block text-sm font-semibold text-slate-700 mb-1.5;
   }
   .form-label-white {
-    @apply block text-sm font-semibold text-white mb-1.5;
+    @apply block text-sm font-semibold text-blue-950 mb-1.5;
   }
 }
 
