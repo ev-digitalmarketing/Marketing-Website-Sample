@@ -13,7 +13,7 @@ export default function BookingForm({ whiteLabels = false, hideService = false, 
     service: defaultService,
     message: '',
   })
-  const [status, setStatus] = useState(null)
+  const [status, setStatus] = useState(null) // null | 'sending' | 'sent' | 'error'
 
   const handleChange = (e) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -22,8 +22,20 @@ export default function BookingForm({ whiteLabels = false, hideService = false, 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
-    await new Promise(r => setTimeout(r, 1000))
-    setStatus('sent')
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setStatus('sent')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   if (status === 'sent') {
@@ -32,8 +44,19 @@ export default function BookingForm({ whiteLabels = false, hideService = false, 
         <div className="text-4xl mb-3">✅</div>
         <h3 className="font-display text-xl font-bold text-blue-800 mb-2">Appointment Request Received!</h3>
         <p className="text-sm text-blue-700">Our front desk will be in touch shortly to confirm your appointment time.</p>
-        <button onClick={() => { setStatus(null); setForm({ name:'', contact:'', service: defaultService, message:'' }) }}
+        <button onClick={() => { setStatus(null); setForm({ name: '', contact: '', service: defaultService, message: '' }) }}
           className="mt-4 text-sm text-blue-600 underline">Submit another request</button>
+      </div>
+    )
+  }
+
+  if (status === 'error') {
+    return (
+      <div className="bg-red-50 border border-red-200 rounded-2xl p-8 text-center">
+        <div className="text-4xl mb-3">❌</div>
+        <h3 className="font-display text-xl font-bold text-red-800 mb-2">Something went wrong</h3>
+        <p className="text-sm text-red-700">Please try again or call us at <a href="tel:+15199151394" className="underline">+1-519-915-1394</a>.</p>
+        <button onClick={() => setStatus(null)} className="mt-4 text-sm text-red-600 underline">Try again</button>
       </div>
     )
   }

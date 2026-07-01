@@ -35,7 +35,7 @@ export default function MentalHealthPage() {
       title="Mental Health"
       subtitle="Comprehensive psychiatric care and mental health support — all integrated with your overall medical care, under one roof."
       phone="+1-519-915-5565"
-      email="info@ottawastreetmedicalcentre.ca"
+      email="info@ottawastreetmedicalcentre.com"
       services={services}
       whyUs={whyUs}
       sectionLabel="What's Included"

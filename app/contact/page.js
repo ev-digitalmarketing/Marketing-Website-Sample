@@ -47,7 +47,7 @@ export default function ContactPage() {
                   <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">✉️</div>
                   <div>
                     <h3 className="font-semibold text-slate-800 text-sm">Email</h3>
-                    <a href="mailto:info@ottawastreetmedicalcentre.ca" className="text-blue-600 text-sm hover:underline">info@ottawastreetmedicalcentre.ca</a>
+                    <a href="mailto:info@ottawastreetmedicalcentre.com" className="text-blue-600 text-sm hover:underline">info@ottawastreetmedicalcentre.com</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
