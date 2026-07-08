@@ -10,7 +10,7 @@ const services = [
     color: 'bg-violet-50 border-violet-100',
     iconBg: 'bg-violet-100 text-violet-700',
     accentColor: '#7c3aed',
-    items: ['Psychiatric Assessment', 'Counselling & Therapy', 'TMS & Ketamine Treatment', 'Cognitive Behaviour Therapy', 'Medication Management'],
+    items: ['Psychiatric Assessment', 'Medication Management', 'TMS & Ketamine Treatment', 'Counselling & Therapy', 'CBT, DBT, EMDR etc.'],
   },
   {
     icon: '🩺',
