@@ -1,11 +1,19 @@
 import ServicePageLayout from '../../../components/ServicePageLayout'
 
-const services = [
+const psychiatryServices = [
   { name: 'Psychiatric Assessment', desc: 'Thorough clinical evaluations using specialized screening tools for ADHD, mood disorders, anxiety, and more to ensure an accurate diagnosis.' },
-  { name: 'Psychological Assessment', desc: 'In-depth psychological testing and evaluation to better understand cognitive and emotional functioning.' },
   { name: 'Medication Management', desc: 'Professional oversight of psychiatric prescriptions focused on finding your optimal balance while carefully monitoring side effects.' },
-  { name: 'Counselling & Therapy', desc: 'One-on-one therapeutic sessions in a safe, confidential environment tailored to your needs and goals.' },
   { name: 'TMS & Ketamine Treatment', desc: 'Advanced treatment options for treatment-resistant depression and other conditions, administered by qualified specialists.' },
+]
+
+const psychologyServices = [
+  { name: 'Psychological Assessment', desc: 'In-depth psychological testing and evaluation to better understand cognitive and emotional functioning.' },
+  { name: 'Counselling & Therapy', desc: 'One-on-one therapeutic sessions in a safe, confidential environment tailored to your needs and goals.' },
+]
+
+const serviceGroups = [
+  { heading: 'Psychiatry Services', services: psychiatryServices },
+  { heading: 'Psychology Services', services: psychologyServices },
 ]
 
 const whyUs = [
@@ -16,7 +24,7 @@ const whyUs = [
 
 export const metadata = {
   title: 'Mental Health Services | Ottawa Street Medical Centre',
-  description: "Comprehensive mental health support and psychiatric care in Windsor. Book with Dr. Aleem Khan's office at Ottawa Street Medical Centre.",
+  description: "Comprehensive mental health support and psychiatric care in Windsor. Book with Dr. Aleem Khan at Ottawa Street Medical Centre.",
 }
 
 export default function MentalHealthPage() {
@@ -31,12 +39,12 @@ export default function MentalHealthPage() {
       accentDot="bg-blue-500"
       accentSection="bg-blue-50"
       icon="🧠"
-      clinic="Dr. Aleem Khan's Office"
+      clinic="Dr. Aleem Khan"
       title="Mental Health"
       subtitle="Comprehensive psychiatric care and mental health support — all integrated with your overall medical care, under one roof."
       phone="+1-519-915-5565"
       email="info@ottawastreetmedicalcentre.com"
-      services={services}
+      serviceGroups={serviceGroups}
       whyUs={whyUs}
       sectionLabel="What's Included"
       servicesHeading="Mental Health Services"

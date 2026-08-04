@@ -144,6 +144,35 @@ function ServiceList({ services, accentColor, accentDot }) {
   )
 }
 
+// A single labeled block: section label + heading + carousel/grid/list.
+// Used both for the classic single-section layout and for stacked, grouped sections (e.g. Psychiatry / Psychology).
+function ServicesBlock({ sectionLabel, heading, services, accentColor, accentCardBorder, accentDot, servicesLayout }) {
+  const render = () => {
+    if (servicesLayout === 'grid') {
+      return <ServiceGrid services={services} accentColor={accentColor} accentDot={accentDot} />
+    }
+    if (servicesLayout === 'list') {
+      return <ServiceList services={services} accentColor={accentColor} accentDot={accentDot} />
+    }
+    return (
+      <ServiceCarousel
+        services={services}
+        accentColor={accentColor}
+        accentCardBorder={accentCardBorder}
+        accentDot={accentDot}
+      />
+    )
+  }
+
+  return (
+    <div>
+      {sectionLabel && <p className="section-label">{sectionLabel}</p>}
+      <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{heading}</h2>
+      {render()}
+    </div>
+  )
+}
+
 export default function ServicePageLayout({
   accentGradient,
   accentColor,
@@ -160,6 +189,7 @@ export default function ServicePageLayout({
   phone,
   email,
   services,
+  serviceGroups, // optional: [{ heading, services }] — renders multiple stacked, labeled sliders instead of a single one
   whyUs,
   sectionLabel,
   servicesHeading,
@@ -167,6 +197,24 @@ export default function ServicePageLayout({
   servicesLayout = 'slider', // 'slider' | 'grid' | 'list'
 }) {
   const renderServices = () => {
+    if (serviceGroups && serviceGroups.length > 0) {
+      return (
+        <div className="space-y-12">
+          {serviceGroups.map((group, i) => (
+            <ServicesBlock
+              key={group.heading}
+              sectionLabel={i === 0 ? sectionLabel : undefined}
+              heading={group.heading}
+              services={group.services}
+              accentColor={accentColor}
+              accentCardBorder={accentCardBorder}
+              accentDot={accentDot}
+              servicesLayout={servicesLayout}
+            />
+          ))}
+        </div>
+      )
+    }
     if (servicesLayout === 'grid') {
       return <ServiceGrid services={services} accentColor={accentColor} accentDot={accentDot} />
     }
@@ -224,8 +272,12 @@ export default function ServicePageLayout({
                 {/* Desktop: services left, form right */}
                 <div className="hidden lg:grid grid-cols-2 gap-10 items-start">
                   <div className="pt-16 pb-10">
-                    <p className="section-label">{sectionLabel}</p>
-                    <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
+                    {!serviceGroups && (
+                      <>
+                        <p className="section-label">{sectionLabel}</p>
+                        <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
+                      </>
+                    )}
                     {renderServices()}
                   </div>
                   <div className="pt-8 pb-10 lg:self-start lg:sticky lg:top-28">
@@ -239,8 +291,12 @@ export default function ServicePageLayout({
                 {/* Mobile */}
                 <div className="lg:hidden">
                   <div className="pt-16 pb-8">
-                    <p className="section-label">{sectionLabel}</p>
-                    <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
+                    {!serviceGroups && (
+                      <>
+                        <p className="section-label">{sectionLabel}</p>
+                        <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
+                      </>
+                    )}
                     {renderServices()}
                   </div>
                   <div className="pb-10">
@@ -255,8 +311,12 @@ export default function ServicePageLayout({
             ) : (
               /* Full-width services, no form */
               <div className="pt-16 pb-16">
-                <p className="section-label">{sectionLabel}</p>
-                <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
+                {!serviceGroups && (
+                  <>
+                    <p className="section-label">{sectionLabel}</p>
+                    <h2 className="font-display text-3xl font-bold text-slate-900 mb-8">{servicesHeading}</h2>
+                  </>
+                )}
                 {renderServices()}
               </div>
             )}
